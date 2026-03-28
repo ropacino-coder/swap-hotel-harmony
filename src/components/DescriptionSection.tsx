@@ -30,9 +30,9 @@ const DescriptionSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="about" className="py-24 relative" ref={ref}>
+    <section id="about" className="py-14 relative" ref={ref}>
       <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-10 items-center max-w-6xl mx-auto">
           {/* Left — narrative */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}

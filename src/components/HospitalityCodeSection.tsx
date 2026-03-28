@@ -29,7 +29,7 @@ const HospitalityCodeSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section className="py-24 relative overflow-hidden" ref={ref}>
+    <section className="py-14 relative overflow-hidden" ref={ref}>
       <div className="absolute inset-0 bg-muted/30" />
 
       <div className="container mx-auto px-6 relative z-10">
@@ -52,7 +52,7 @@ const HospitalityCodeSection = () => {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ delay: 0.3, duration: 0.6 }}
-          className="text-center text-lg text-muted-foreground italic mb-14 max-w-xl mx-auto"
+          className="text-center text-lg text-muted-foreground italic mb-8 max-w-xl mx-auto"
         >
           "En nuestra red, el valor no se mide en billetes, se mide en noches compartidas."
         </motion.p>

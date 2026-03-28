@@ -13,9 +13,9 @@ const IdeaSection = () => {
   ];
 
   return (
-    <section className="py-24 relative" ref={ref}>
+    <section className="py-14 relative" ref={ref}>
       <div className="container mx-auto px-6">
-        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 items-center">
           {/* Left — what we stop */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
