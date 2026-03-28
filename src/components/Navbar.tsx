@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/logo.png";
@@ -13,6 +14,28 @@ const navItems = [
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    if (location.pathname !== "/") {
+      navigate("/" + href);
+    } else {
+      const el = document.querySelector(href.replace("/", ""));
+      el?.scrollIntoView({ behavior: "smooth" });
+    }
+    setIsOpen(false);
+  };
+
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    if (location.pathname !== "/") {
+      navigate("/");
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   return (
     <motion.nav
@@ -22,7 +45,7 @@ const Navbar = () => {
       className="fixed top-0 left-0 right-0 z-50 bg-card/90 backdrop-blur-lg border-b border-border"
     >
       <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-3">
+        <a href="/" onClick={handleLogoClick} className="flex items-center gap-3">
           <img src={logo} alt="Swap Hotels" className="h-10 w-auto" />
           <span className="font-display font-bold text-xl gold-text hidden sm:block">
             Swap Hotels
@@ -34,6 +57,7 @@ const Navbar = () => {
             <a
               key={item.label}
               href={item.href}
+              onClick={(e) => handleAnchorClick(e, item.href)}
               className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-300"
             >
               {item.label}
@@ -74,7 +98,7 @@ const Navbar = () => {
                 <a
                   key={item.label}
                   href={item.href}
-                  onClick={() => setIsOpen(false)}
+                  onClick={(e) => handleAnchorClick(e, item.href)}
                   className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
                 >
                   {item.label}
