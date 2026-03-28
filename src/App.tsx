@@ -8,6 +8,8 @@ import AIChatWidget from "@/components/AIChatWidget";
 import Index from "./pages/Index.tsx";
 import Register from "./pages/Register.tsx";
 import Login from "./pages/Login.tsx";
+import ForgotPassword from "./pages/ForgotPassword.tsx";
+import ResetPassword from "./pages/ResetPassword.tsx";
 import HotelDetail from "./pages/HotelDetail.tsx";
 import HotelUpload from "./pages/HotelUpload.tsx";
 import Hoteles from "./pages/Hoteles.tsx";

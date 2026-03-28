@@ -182,6 +182,12 @@ const Login = () => {
                 {!loading && <ArrowRight className="w-4 h-4" />}
               </button>
             </form>
+
+            <div className="text-center">
+              <a href="/forgot-password" className="text-xs text-muted-foreground hover:text-primary transition-colors">
+                ¿Olvidaste tu contraseña?
+              </a>
+            </div>
           </div>
 
           <p className="text-center text-xs text-muted-foreground mt-6">
