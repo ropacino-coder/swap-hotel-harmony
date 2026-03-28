@@ -18,9 +18,9 @@ const IdeaSection = () => {
         <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 items-center">
           {/* Left — what we stop */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, x: -40, filter: "blur(6px)" }}
+            animate={isInView ? { opacity: 1, x: 0, filter: "blur(0px)" } : {}}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           >
             <span className="text-sm font-semibold text-primary uppercase tracking-widest">
               El giro colaborativo
@@ -34,14 +34,23 @@ const IdeaSection = () => {
               {stops.map((s, i) => (
                 <motion.div
                   key={s}
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 0, x: -30 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ delay: 0.3 + i * 0.15, duration: 0.5 }}
+                  transition={{
+                    delay: 0.3 + i * 0.15,
+                    duration: 0.6,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
                   className="flex items-center gap-3"
                 >
-                  <div className="w-8 h-8 rounded-full bg-destructive/10 flex items-center justify-center flex-shrink-0">
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={isInView ? { scale: 1 } : {}}
+                    transition={{ delay: 0.4 + i * 0.15, type: "spring", stiffness: 300 }}
+                    className="w-8 h-8 rounded-full bg-destructive/10 flex items-center justify-center flex-shrink-0"
+                  >
                     <Ban className="w-4 h-4 text-destructive" />
-                  </div>
+                  </motion.div>
                   <span className="font-medium text-foreground">{s}</span>
                 </motion.div>
               ))}
@@ -50,13 +59,25 @@ const IdeaSection = () => {
 
           {/* Right — what we propose */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.5, duration: 0.8 }}
+            initial={{ opacity: 0, y: 40, scale: 0.95 }}
+            animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+            transition={{ delay: 0.4, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            whileHover={{ y: -4 }}
             className="glass-card p-8 relative overflow-hidden"
           >
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary/60 via-gold-light to-primary/20" />
-            <Sparkles className="w-8 h-8 text-primary mb-4" />
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={isInView ? { scaleX: 1 } : {}}
+              transition={{ delay: 0.8, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary/60 via-gold-light to-primary/20 origin-left"
+            />
+            <motion.div
+              initial={{ scale: 0, rotate: -180 }}
+              animate={isInView ? { scale: 1, rotate: 0 } : {}}
+              transition={{ delay: 0.6, type: "spring", stiffness: 200 }}
+            >
+              <Sparkles className="w-8 h-8 text-primary mb-4" />
+            </motion.div>
             <h3 className="font-display font-bold text-xl mb-3">
               Convertir noches vacías en oportunidades
             </h3>
@@ -65,12 +86,13 @@ const IdeaSection = () => {
               Sin competencia. Solo colaboración entre profesionales que 
               entienden la industria.
             </p>
-            <a
+            <motion.a
               href="/register"
-              className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
+              whileHover={{ gap: "12px" }}
+              className="inline-flex items-center gap-2 text-primary font-semibold transition-all"
             >
               Empezá ahora <ArrowRight className="w-4 h-4" />
-            </a>
+            </motion.a>
           </motion.div>
         </div>
       </div>
