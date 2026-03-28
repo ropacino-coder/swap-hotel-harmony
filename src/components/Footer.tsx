@@ -23,7 +23,7 @@ const footerSections = [
   {
     title: "Información",
     links: [
-      { label: "Preguntas Frecuentes", href: "#faq" },
+      { label: "Preguntas Frecuentes", href: "/faq" },
       { label: "Consejos para Swappers", href: "#tips" },
       { label: "Economía del Sistema", href: "#economy" },
       { label: "Beneficios", href: "#benefits" },
