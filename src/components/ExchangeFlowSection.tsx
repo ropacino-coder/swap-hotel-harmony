@@ -60,13 +60,13 @@ const ExchangeFlowSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="flow" className="py-24 relative" ref={ref}>
+    <section id="flow" className="py-14 relative" ref={ref}>
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-8"
         >
           <span className="text-sm font-semibold text-primary uppercase tracking-widest">
             Flujo Completo
@@ -84,7 +84,7 @@ const ExchangeFlowSection = () => {
           {/* Vertical line */}
           <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-primary/20 to-transparent hidden md:block" />
 
-          <div className="space-y-8 md:space-y-12">
+          <div className="space-y-5 md:space-y-12">
             {steps.map((step, i) => {
               const isLeft = i % 2 === 0;
               return (

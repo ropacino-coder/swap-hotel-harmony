@@ -21,7 +21,7 @@ const JoinSection = () => {
   };
 
   return (
-    <section id="join" className="py-24 relative" ref={ref}>
+    <section id="join" className="py-14 relative" ref={ref}>
       <div className="absolute inset-0 bg-muted/30" />
 
       <div className="container mx-auto px-6 relative z-10">
@@ -29,7 +29,7 @@ const JoinSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="glass-card p-10 md:p-16 max-w-3xl mx-auto text-center relative overflow-hidden"
+          className="glass-card p-8 md:p-12 max-w-3xl mx-auto text-center relative overflow-hidden"
         >
           {/* Glow effect */}
           <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-60 h-60 bg-primary/10 rounded-full blur-[80px]" />
@@ -44,7 +44,7 @@ const JoinSection = () => {
               plataforma.
             </p>
 
-            <ul className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 mb-10">
+            <ul className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 mb-6">
               {benefits.map((b) => (
                 <li
                   key={b}

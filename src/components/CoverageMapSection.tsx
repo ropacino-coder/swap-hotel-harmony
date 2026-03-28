@@ -175,7 +175,7 @@ const CoverageMapSection = () => {
   const activeData = countries.find((c) => c.id === activeCountry);
 
   return (
-    <section className="py-24 relative" ref={ref}>
+    <section className="py-14 relative" ref={ref}>
       <div className="absolute inset-0 bg-muted/20" />
 
       <div className="container mx-auto px-6 relative z-10">
@@ -183,7 +183,7 @@ const CoverageMapSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-14"
+          className="text-center mb-8"
         >
           <span className="text-sm font-semibold text-primary uppercase tracking-widest">
             Cobertura
@@ -196,7 +196,7 @@ const CoverageMapSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 items-center max-w-5xl mx-auto">
           {/* Map */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -255,7 +255,7 @@ const CoverageMapSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.9, duration: 0.6 }}
-          className="mt-16 grid grid-cols-3 gap-4 max-w-lg mx-auto"
+          className="mt-6 grid grid-cols-3 gap-4 max-w-lg mx-auto"
         >
           {[
             { icon: Globe, value: "4", label: "Países" },

@@ -30,7 +30,7 @@ const TechnologySection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="technology" className="py-24 relative overflow-hidden" ref={ref}>
+    <section id="technology" className="py-14 relative overflow-hidden" ref={ref}>
       {/* Animated background orb */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/3 blur-[120px]" />
 
@@ -39,7 +39,7 @@ const TechnologySection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-8"
         >
           <span className="text-sm font-semibold text-primary uppercase tracking-widest">
             Tecnología
@@ -81,7 +81,7 @@ const TechnologySection = () => {
           initial={{ opacity: 0, scaleX: 0 }}
           animate={isInView ? { opacity: 1, scaleX: 1 } : {}}
           transition={{ delay: 0.8, duration: 1.2, ease: "easeOut" }}
-          className="mt-16 max-w-3xl mx-auto"
+          className="mt-6 max-w-3xl mx-auto"
         >
           <div className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
           <div className="flex justify-between mt-4">

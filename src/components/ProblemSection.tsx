@@ -15,7 +15,7 @@ const ProblemSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section className="py-24 relative" ref={ref}>
+    <section className="py-14 relative" ref={ref}>
       <div className="absolute inset-0 bg-muted/40" />
 
       <div className="container mx-auto px-6 relative z-10">
@@ -25,7 +25,7 @@ const ProblemSection = () => {
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto"
         >
-          <div className="text-center mb-14">
+          <div className="text-center mb-8">
             <span className="text-sm font-semibold text-primary uppercase tracking-widest">
               El Problema
             </span>
@@ -56,7 +56,7 @@ const ProblemSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.8, duration: 0.6 }}
-            className="mt-10 text-center"
+            className="mt-6 text-center"
           >
             <p className="text-lg text-muted-foreground font-medium italic text-balance">
               "Hay infraestructura, hay gente, hay destinos…
