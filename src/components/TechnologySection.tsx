@@ -81,7 +81,7 @@ const TechnologySection = () => {
           initial={{ opacity: 0, scaleX: 0 }}
           animate={isInView ? { opacity: 1, scaleX: 1 } : {}}
           transition={{ delay: 0.8, duration: 1.2, ease: "easeOut" }}
-          className="mt-10 max-w-3xl mx-auto"
+          className="mt-6 max-w-3xl mx-auto"
         >
           <div className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
           <div className="flex justify-between mt-4">

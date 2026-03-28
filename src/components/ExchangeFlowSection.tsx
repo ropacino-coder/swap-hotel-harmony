@@ -84,7 +84,7 @@ const ExchangeFlowSection = () => {
           {/* Vertical line */}
           <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-primary/20 to-transparent hidden md:block" />
 
-          <div className="space-y-8 md:space-y-12">
+          <div className="space-y-5 md:space-y-12">
             {steps.map((step, i) => {
               const isLeft = i % 2 === 0;
               return (

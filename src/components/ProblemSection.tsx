@@ -56,7 +56,7 @@ const ProblemSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.8, duration: 0.6 }}
-            className="mt-10 text-center"
+            className="mt-6 text-center"
           >
             <p className="text-lg text-muted-foreground font-medium italic text-balance">
               "Hay infraestructura, hay gente, hay destinos…

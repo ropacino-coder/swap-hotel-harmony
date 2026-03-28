@@ -255,7 +255,7 @@ const CoverageMapSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.9, duration: 0.6 }}
-          className="mt-10 grid grid-cols-3 gap-4 max-w-lg mx-auto"
+          className="mt-6 grid grid-cols-3 gap-4 max-w-lg mx-auto"
         >
           {[
             { icon: Globe, value: "4", label: "Países" },
