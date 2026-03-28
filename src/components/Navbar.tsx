@@ -21,7 +21,7 @@ const Navbar = () => {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className="fixed top-0 left-0 right-0 z-50 bg-card/90 backdrop-blur-lg border-b border-border"
     >
-      <div className="container mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
         <a href="#" className="flex items-center gap-3">
           <img src={logo} alt="Swap Hotels" className="h-10 w-auto" />
           <span className="font-display font-bold text-xl gold-text hidden sm:block">
