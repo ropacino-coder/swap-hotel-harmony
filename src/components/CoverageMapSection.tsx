@@ -1,4 +1,4 @@
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
 import { MapPin, Building, Users, Globe } from "lucide-react";
 
@@ -37,7 +37,31 @@ const countries = [
   },
 ];
 
-const SouthAmericaMap = ({ activeCountry, onHover }: { activeCountry: string | null; onHover: (id: string | null) => void }) => {
+// Coordinates of country label centers on the SVG
+const countryPoints: Record<string, { x: number; y: number }> = {
+  AR: { x: 140, y: 360 },
+  UY: { x: 237, y: 295 },
+  CL: { x: 58, y: 340 },
+  PY: { x: 183, y: 240 },
+};
+
+// All exchange routes between countries
+const routes = [
+  { from: "AR", to: "UY" },
+  { from: "AR", to: "CL" },
+  { from: "AR", to: "PY" },
+  { from: "UY", to: "PY" },
+  { from: "CL", to: "PY" },
+  { from: "UY", to: "CL" },
+];
+
+const SouthAmericaMap = ({
+  activeCountry,
+  onHover,
+}: {
+  activeCountry: string | null;
+  onHover: (id: string | null) => void;
+}) => {
   const getFill = (id: string) => {
     if (activeCountry === id) return "hsl(var(--primary))";
     if (["AR", "UY", "CL", "PY"].includes(id)) return "hsl(var(--primary) / 0.25)";
@@ -50,27 +74,43 @@ const SouthAmericaMap = ({ activeCountry, onHover }: { activeCountry: string | n
     return "hsl(var(--border))";
   };
 
+  // Get routes that involve the active country
+  const activeRoutes = activeCountry
+    ? routes.filter((r) => r.from === activeCountry || r.to === activeCountry)
+    : [];
+
   return (
     <svg viewBox="0 0 400 550" className="w-full h-full max-w-[320px] mx-auto" xmlns="http://www.w3.org/2000/svg">
-      {/* Colombia */}
+      <defs>
+        <linearGradient id="routeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.8" />
+          <stop offset="50%" stopColor="hsl(var(--gold-light))" stopOpacity="1" />
+          <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.8" />
+        </linearGradient>
+        <filter id="routeGlow">
+          <feGaussianBlur stdDeviation="3" result="blur" />
+          <feMerge>
+            <feMergeNode in="blur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+        {/* Animated dash for the traveling dot effect */}
+        <circle id="routeDot" r="3" fill="hsl(var(--primary))" />
+      </defs>
+
+      {/* Non-active countries */}
       <path d="M120,30 L160,20 L190,35 L200,60 L185,80 L160,90 L140,85 L115,70 L105,50 Z"
         fill="hsl(var(--muted))" stroke="hsl(var(--border))" strokeWidth="1" />
-      {/* Venezuela */}
       <path d="M160,20 L200,10 L240,15 L250,40 L230,55 L200,60 L190,35 Z"
         fill="hsl(var(--muted))" stroke="hsl(var(--border))" strokeWidth="1" />
-      {/* Guyana/Suriname/French Guiana */}
       <path d="M240,15 L280,20 L290,45 L270,55 L250,40 Z"
         fill="hsl(var(--muted))" stroke="hsl(var(--border))" strokeWidth="1" />
-      {/* Ecuador */}
       <path d="M105,50 L115,70 L130,90 L115,100 L90,90 L85,65 Z"
         fill="hsl(var(--muted))" stroke="hsl(var(--border))" strokeWidth="1" />
-      {/* Peru */}
       <path d="M85,65 L90,90 L115,100 L130,90 L140,120 L130,160 L110,180 L80,170 L65,130 L70,90 Z"
         fill="hsl(var(--muted))" stroke="hsl(var(--border))" strokeWidth="1" />
-      {/* Brazil */}
       <path d="M185,80 L200,60 L230,55 L270,55 L290,45 L310,70 L320,110 L310,160 L290,200 L270,240 L250,270 L230,280 L210,260 L200,230 L190,200 L170,180 L150,170 L130,160 L140,120 L130,90 L140,85 L160,90 Z"
         fill="hsl(var(--muted))" stroke="hsl(var(--border))" strokeWidth="1" />
-      {/* Bolivia */}
       <path d="M130,160 L150,170 L170,180 L175,210 L160,230 L130,230 L110,210 L110,180 Z"
         fill="hsl(var(--muted))" stroke="hsl(var(--border))" strokeWidth="1" />
 
@@ -122,7 +162,90 @@ const SouthAmericaMap = ({ activeCountry, onHover }: { activeCountry: string | n
         whileHover={{ scale: 1.01 }}
       />
 
-      {/* Country labels */}
+      {/* Exchange route lines */}
+      <AnimatePresence>
+        {activeRoutes.map((route) => {
+          const from = countryPoints[route.from];
+          const to = countryPoints[route.to];
+          // Calculate curved path
+          const midX = (from.x + to.x) / 2;
+          const midY = (from.y + to.y) / 2;
+          const dx = to.x - from.x;
+          const dy = to.y - from.y;
+          // Perpendicular offset for curve
+          const curveOffset = 25;
+          const len = Math.sqrt(dx * dx + dy * dy);
+          const cx = midX + (-dy / len) * curveOffset;
+          const cy = midY + (dx / len) * curveOffset;
+          const pathD = `M${from.x},${from.y} Q${cx},${cy} ${to.x},${to.y}`;
+          const pathId = `route-${route.from}-${route.to}`;
+
+          return (
+            <g key={pathId}>
+              {/* Glow behind line */}
+              <motion.path
+                d={pathD}
+                fill="none"
+                stroke="hsl(var(--primary))"
+                strokeWidth="4"
+                strokeLinecap="round"
+                opacity="0.15"
+                filter="url(#routeGlow)"
+                initial={{ pathLength: 0, opacity: 0 }}
+                animate={{ pathLength: 1, opacity: 0.15 }}
+                exit={{ pathLength: 0, opacity: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              />
+              {/* Main line */}
+              <motion.path
+                id={pathId}
+                d={pathD}
+                fill="none"
+                stroke="url(#routeGradient)"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeDasharray="6 4"
+                initial={{ pathLength: 0, opacity: 0 }}
+                animate={{ pathLength: 1, opacity: 1 }}
+                exit={{ pathLength: 0, opacity: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              />
+              {/* Traveling dot */}
+              <motion.circle
+                r="3"
+                fill="hsl(var(--primary))"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              >
+                <animateMotion
+                  dur="2s"
+                  repeatCount="indefinite"
+                  path={pathD}
+                />
+              </motion.circle>
+              {/* Reverse traveling dot */}
+              <motion.circle
+                r="2.5"
+                fill="hsl(var(--gold-light))"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.8 }}
+                exit={{ opacity: 0 }}
+              >
+                <animateMotion
+                  dur="2.5s"
+                  repeatCount="indefinite"
+                  path={pathD}
+                  keyPoints="1;0"
+                  keyTimes="0;1"
+                />
+              </motion.circle>
+            </g>
+          );
+        })}
+      </AnimatePresence>
+
+      {/* Country labels & dots */}
       {[
         { id: "AR", x: 140, y: 360, label: "ARG" },
         { id: "UY", x: 237, y: 295, label: "URU" },
@@ -130,10 +253,25 @@ const SouthAmericaMap = ({ activeCountry, onHover }: { activeCountry: string | n
         { id: "PY", x: 183, y: 240, label: "PAR" },
       ].map((c) => (
         <g key={c.id}>
+          {/* Outer ring when connected */}
+          {activeCountry && activeCountry !== c.id &&
+            activeRoutes.some((r) => r.from === c.id || r.to === c.id) && (
+              <motion.circle
+                cx={c.x}
+                cy={c.y}
+                r={10}
+                fill="none"
+                stroke="hsl(var(--primary))"
+                strokeWidth={1}
+                initial={{ r: 4, opacity: 0 }}
+                animate={{ r: 14, opacity: [0, 0.6, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              />
+            )}
           <motion.circle
             cx={c.x}
             cy={c.y}
-            r={activeCountry === c.id ? 6 : 4}
+            r={activeCountry === c.id ? 7 : 4}
             fill={activeCountry === c.id ? "hsl(var(--primary))" : "hsl(var(--primary) / 0.6)"}
             className="transition-all duration-300"
           />
@@ -145,14 +283,14 @@ const SouthAmericaMap = ({ activeCountry, onHover }: { activeCountry: string | n
               fill="none"
               stroke="hsl(var(--primary))"
               strokeWidth={1.5}
-              initial={{ r: 6, opacity: 1 }}
-              animate={{ r: 18, opacity: 0 }}
+              initial={{ r: 7, opacity: 1 }}
+              animate={{ r: 22, opacity: 0 }}
               transition={{ duration: 1.5, repeat: Infinity }}
             />
           )}
           <text
             x={c.x}
-            y={c.y - 12}
+            y={c.y - 14}
             textAnchor="middle"
             fontSize="10"
             fontWeight="700"
@@ -193,6 +331,9 @@ const CoverageMapSection = () => {
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto text-balance">
             Swap Hotels conecta hoteleros del Cono Sur en una red de intercambio única.
+            <span className="block text-xs mt-1 text-primary/70 font-medium">
+              Pasá el cursor sobre un país para ver sus rutas de intercambio
+            </span>
           </p>
         </motion.div>
 
@@ -207,18 +348,22 @@ const CoverageMapSection = () => {
             <SouthAmericaMap activeCountry={activeCountry} onHover={setActiveCountry} />
 
             {/* Tooltip */}
-            {activeData && (
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="absolute bottom-4 left-1/2 -translate-x-1/2 glass-card p-4 min-w-[240px] text-center"
-              >
-                <p className="text-2xl mb-1">{activeData.flag}</p>
-                <h4 className="font-display font-bold text-base">{activeData.name}</h4>
-                <p className="text-xs text-muted-foreground mt-1">{activeData.cities}</p>
-                <p className="text-xs text-primary font-semibold mt-1">{activeData.stat}</p>
-              </motion.div>
-            )}
+            <AnimatePresence>
+              {activeData && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute bottom-4 left-1/2 -translate-x-1/2 glass-card p-4 min-w-[240px] text-center"
+                >
+                  <p className="text-2xl mb-1">{activeData.flag}</p>
+                  <h4 className="font-display font-bold text-base">{activeData.name}</h4>
+                  <p className="text-xs text-muted-foreground mt-1">{activeData.cities}</p>
+                  <p className="text-xs text-primary font-semibold mt-1">{activeData.stat}</p>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
 
           {/* Country cards */}
@@ -233,7 +378,7 @@ const CoverageMapSection = () => {
                 onMouseLeave={() => setActiveCountry(null)}
                 className={`glass-card p-5 cursor-pointer transition-all duration-300 ${
                   activeCountry === c.id
-                    ? "shadow-[var(--shadow-card-hover)] border-primary/30"
+                    ? "shadow-[var(--shadow-card-hover)] border-primary/30 -translate-y-1"
                     : ""
                 }`}
               >
