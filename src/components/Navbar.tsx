@@ -76,11 +76,11 @@ const Navbar = () => {
                 </a>
               ))}
               <a
-                href="#join"
+                href="/register"
                 onClick={() => setIsOpen(false)}
                 className="px-5 py-2.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm text-center"
               >
-                Comenzar
+                Registrarse
               </a>
             </div>
           </motion.div>
