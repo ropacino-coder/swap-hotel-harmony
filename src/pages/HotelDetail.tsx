@@ -7,6 +7,8 @@ import {
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import HotelMapSection from "@/components/HotelMapSection";
+import HotelTourismAI from "@/components/HotelTourismAI";
 import { hotels, amenityIcons, categoryColors } from "@/data/hotels";
 
 const occupancies = [
