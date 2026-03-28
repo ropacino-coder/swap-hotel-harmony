@@ -14,9 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["Nunito Sans", "sans-serif"],
-        body: ["Nunito Sans", "sans-serif"],
-        sans: ["Nunito Sans", "sans-serif"],
+        display: ["Inter", "-apple-system", "BlinkMacSystemFont", "Roboto", "Helvetica Neue", "sans-serif"],
+        body: ["Inter", "-apple-system", "BlinkMacSystemFont", "Roboto", "Helvetica Neue", "sans-serif"],
+        sans: ["Inter", "-apple-system", "BlinkMacSystemFont", "Roboto", "Helvetica Neue", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
