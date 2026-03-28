@@ -24,7 +24,7 @@ const footerSections = [
     title: "Información",
     links: [
       { label: "Preguntas Frecuentes", href: "/faq" },
-      { label: "Consejos para Swappers", href: "/consejos" },
+      { label: "Consejos", href: "/consejos" },
       { label: "Economía del Sistema", href: "#economy" },
       { label: "Beneficios", href: "#benefits" },
     ],
