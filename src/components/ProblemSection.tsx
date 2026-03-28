@@ -23,7 +23,7 @@ const ProblemSection = () => {
     <section className="py-8 relative" ref={ref}>
       <motion.div className="absolute inset-0 bg-muted/40" style={{ opacity: bgOpacity }} />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <motion.div className="max-w-4xl mx-auto">
           <div className="text-center mb-5">
             <motion.span

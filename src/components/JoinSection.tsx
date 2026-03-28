@@ -24,7 +24,7 @@ const JoinSection = () => {
     <section id="join" className="py-8 relative" ref={ref}>
       <div className="absolute inset-0 bg-muted/30" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 40, scale: 0.95 }}
           animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}

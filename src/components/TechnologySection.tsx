@@ -43,7 +43,7 @@ const TechnologySection = () => {
         style={{ scale: orbScale, opacity: orbOpacity }}
       />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
           animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
