@@ -59,7 +59,7 @@ const Navbar = () => {
             <a
               key={item.label}
               href={item.href}
-              onClick={(e) => handleAnchorClick(e, item.href)}
+              onClick={(e) => handleNavClick(e, item.href)}
               className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-300"
             >
               {item.label}
@@ -100,7 +100,7 @@ const Navbar = () => {
                 <a
                   key={item.label}
                   href={item.href}
-                  onClick={(e) => handleAnchorClick(e, item.href)}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
                 >
                   {item.label}
