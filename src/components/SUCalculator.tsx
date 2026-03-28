@@ -46,7 +46,7 @@ const SUCalculator = () => {
     "w-full px-4 py-3 rounded-xl bg-secondary border border-border text-foreground appearance-none focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all cursor-pointer";
 
   return (
-    <section id="calculator" className="py-14 relative" ref={ref}>
+    <section id="calculator" className="py-8 relative" ref={ref}>
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

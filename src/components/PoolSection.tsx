@@ -35,7 +35,7 @@ const PoolSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="pool" className="py-14 relative" ref={ref}>
+    <section id="pool" className="py-8 relative" ref={ref}>
       <div className="absolute inset-0 bg-muted/30" />
 
       <div className="container mx-auto px-6 relative z-10">

@@ -29,7 +29,7 @@ const HospitalityCodeSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section className="py-14 relative overflow-hidden" ref={ref}>
+    <section className="py-8 relative overflow-hidden" ref={ref}>
       <div className="absolute inset-0 bg-muted/30" />
 
       <div className="container mx-auto px-6 relative z-10">

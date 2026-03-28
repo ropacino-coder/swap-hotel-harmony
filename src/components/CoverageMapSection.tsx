@@ -313,7 +313,7 @@ const CoverageMapSection = () => {
   const activeData = countries.find((c) => c.id === activeCountry);
 
   return (
-    <section className="py-14 relative" ref={ref}>
+    <section className="py-8 relative" ref={ref}>
       <div className="absolute inset-0 bg-muted/20" />
 
       <div className="container mx-auto px-6 relative z-10">

@@ -36,7 +36,7 @@ const TechnologySection = () => {
   const orbOpacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 0.06, 0.06, 0]);
 
   return (
-    <section id="technology" className="py-14 relative overflow-hidden" ref={ref}>
+    <section id="technology" className="py-8 relative overflow-hidden" ref={ref}>
       {/* Animated parallax orb */}
       <motion.div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary blur-[120px]"

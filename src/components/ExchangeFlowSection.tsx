@@ -60,7 +60,7 @@ const ExchangeFlowSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="flow" className="py-14 relative" ref={ref}>
+    <section id="flow" className="py-8 relative" ref={ref}>
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
