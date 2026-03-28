@@ -41,10 +41,10 @@ const Navbar = () => {
             </a>
           ))}
           <a
-            href="#join"
+            href="/register"
             className="px-5 py-2.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:bg-gold-light transition-colors duration-300"
           >
-            Comenzar
+            Registrarse
           </a>
         </div>
 
