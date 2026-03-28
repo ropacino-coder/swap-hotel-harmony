@@ -337,13 +337,13 @@ const CoverageMapSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-5 items-center max-w-5xl mx-auto">
-          {/* Map */}
+        <div className="grid md:grid-cols-2 gap-5 items-center max-w-5xl mx-auto">
+          {/* Map - hidden on very small screens, shown from sm up */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="relative"
+            className="relative hidden sm:block"
           >
             <SouthAmericaMap activeCountry={activeCountry} onHover={setActiveCountry} />
 
@@ -367,7 +367,7 @@ const CoverageMapSection = () => {
           </motion.div>
 
           {/* Country cards */}
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4">
             {countries.map((c, i) => (
               <motion.div
                 key={c.id}
@@ -376,7 +376,8 @@ const CoverageMapSection = () => {
                 transition={{ delay: 0.4 + i * 0.1, duration: 0.5 }}
                 onMouseEnter={() => setActiveCountry(c.id)}
                 onMouseLeave={() => setActiveCountry(null)}
-                className={`glass-card p-5 cursor-pointer transition-all duration-300 ${
+                onClick={() => setActiveCountry(activeCountry === c.id ? null : c.id)}
+                className={`glass-card p-3 sm:p-5 cursor-pointer transition-all duration-300 ${
                   activeCountry === c.id
                     ? "shadow-[var(--shadow-card-hover)] border-primary/30 -translate-y-1"
                     : ""
