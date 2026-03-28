@@ -14,7 +14,60 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      profiles: {
+        Row: {
+          created_at: string
+          document_number: string
+          document_type: string
+          first_name: string
+          fiscal_id: string
+          hotel_email: string | null
+          hotel_type: string
+          id: string
+          is_verified: boolean
+          last_name: string
+          legal_role: string
+          phone: string
+          registration_step: number
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          document_number: string
+          document_type: string
+          first_name: string
+          fiscal_id: string
+          hotel_email?: string | null
+          hotel_type: string
+          id?: string
+          is_verified?: boolean
+          last_name: string
+          legal_role: string
+          phone: string
+          registration_step?: number
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          document_number?: string
+          document_type?: string
+          first_name?: string
+          fiscal_id?: string
+          hotel_email?: string | null
+          hotel_type?: string
+          id?: string
+          is_verified?: boolean
+          last_name?: string
+          legal_role?: string
+          phone?: string
+          registration_step?: number
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
