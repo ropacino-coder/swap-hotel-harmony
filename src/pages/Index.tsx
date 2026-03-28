@@ -9,7 +9,6 @@ import PoolSection from "@/components/PoolSection";
 import OnboardingSection from "@/components/OnboardingSection";
 import ExchangeFlowSection from "@/components/ExchangeFlowSection";
 import PricingSection from "@/components/PricingSection";
-import SUCalculator from "@/components/SUCalculator";
 import ValuesSection from "@/components/ValuesSection";
 import HospitalityCodeSection from "@/components/HospitalityCodeSection";
 import GuaranteesSection from "@/components/GuaranteesSection";
@@ -35,7 +34,6 @@ const Index = () => {
       <OnboardingSection />
       <ExchangeFlowSection />
       <PricingSection />
-      <SUCalculator />
       <ValuesSection />
       <HospitalityCodeSection />
       <GuaranteesSection />
