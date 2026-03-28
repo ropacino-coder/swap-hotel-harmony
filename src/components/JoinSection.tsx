@@ -22,7 +22,7 @@ const JoinSection = () => {
 
   return (
     <section id="join" className="py-24 relative" ref={ref}>
-      <div className="absolute inset-0 particle-grid opacity-10" />
+      <div className="absolute inset-0 bg-muted/30" />
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
