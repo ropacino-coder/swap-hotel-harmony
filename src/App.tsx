@@ -32,6 +32,8 @@ const App = () => (
             <Route path="/hotel/:id" element={<HotelDetail />} />
             <Route path="/hotel/upload" element={<HotelUpload />} />
             <Route path="/faq" element={<FAQ />} />
+            <Route path="/consejos" element={<Tips />} />
+            <Route path="/garantias" element={<Guarantees />} />
             <Route path="/login" element={<Login />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
