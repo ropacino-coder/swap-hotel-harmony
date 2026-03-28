@@ -28,6 +28,8 @@ export interface Hotel {
   checkIn: string;
   checkOut: string;
   roomTypes: { name: string; mult: number; description: string }[];
+  lat: number;
+  lng: number;
 }
 
 export const amenityIcons: Record<string, typeof Wifi> = {
