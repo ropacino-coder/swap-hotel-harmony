@@ -41,7 +41,6 @@ const Index = () => {
       <EconomySection />
       <BenefitsSection />
       <TipsSection />
-      <FAQSection />
       <JoinSection />
       <Footer />
     </div>
