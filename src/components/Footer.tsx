@@ -1,5 +1,6 @@
+import { motion } from "framer-motion";
 import logo from "@/assets/logo.png";
-import { MapPin, Mail, Phone } from "lucide-react";
+import { MapPin, Mail, ArrowUpRight, Globe, Shield, Zap } from "lucide-react";
 
 const footerSections = [
   {
@@ -15,9 +16,7 @@ const footerSections = [
     links: [
       { label: "Cancelaciones & Sanciones", href: "/cancelaciones" },
       { label: "Nuestras Garantías", href: "/garantias" },
-      { label: "Código de Hospitalidad", href: "#hospitality" },
       { label: "Nuestros Valores", href: "/valores" },
-      { label: "Tecnología", href: "#technology" },
     ],
   },
   {
@@ -25,78 +24,147 @@ const footerSections = [
     links: [
       { label: "Preguntas Frecuentes", href: "/faq" },
       { label: "Consejos", href: "/consejos" },
-      { label: "Economía del Sistema", href: "#economy" },
-      { label: "Beneficios", href: "#benefits" },
     ],
   },
 ];
 
-const countries = ["Argentina", "Uruguay", "Chile", "Paraguay"];
+const countries = [
+  { name: "Argentina", flag: "🇦🇷" },
+  { name: "Uruguay", flag: "🇺🇾" },
+  { name: "Chile", flag: "🇨🇱" },
+  { name: "Paraguay", flag: "🇵🇾" },
+];
+
+const highlights = [
+  { icon: Globe, label: "Red Latinoamericana" },
+  { icon: Shield, label: "Verificación Real" },
+  { icon: Zap, label: "Sin Intermediarios" },
+];
 
 const Footer = () => {
   return (
-    <footer className="border-t border-border bg-card">
-      <div className="container mx-auto px-4 sm:px-6 py-10 sm:py-14">
-        {/* Main grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 mb-10">
-          {/* Brand column */}
-          <div className="col-span-2 sm:col-span-3 lg:col-span-1 mb-2 lg:mb-0">
-            <a href="#" className="flex items-center gap-2.5 mb-4">
-              <img src={logo} alt="Swap Hotels" className="h-9 w-auto" />
-              <span className="font-display font-bold text-lg gold-text">Swap Hotels</span>
-            </a>
-            <p className="text-sm text-muted-foreground leading-relaxed mb-4 max-w-xs">
-              La primera red de intercambio hotelero sin dinero de Latinoamérica.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {countries.map((c) => (
-                <span
-                  key={c}
-                  className="inline-flex items-center gap-1 text-[11px] text-muted-foreground bg-secondary px-2.5 py-1 rounded-full"
-                >
-                  <MapPin className="w-3 h-3" />
-                  {c}
-                </span>
-              ))}
+    <footer className="relative overflow-hidden">
+      {/* Navy gradient background */}
+      <div className="absolute inset-0 bg-[hsl(var(--navy))]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[hsl(215,30%,16%)] via-[hsl(var(--navy))] to-[hsl(215,35%,8%)]" />
+      {/* Subtle pattern overlay */}
+      <div className="absolute inset-0 opacity-[0.03]" style={{
+        backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
+        backgroundSize: '32px 32px',
+      }} />
+
+      <div className="relative z-10">
+        {/* CTA Banner */}
+        <div className="border-b border-white/10">
+          <div className="container mx-auto px-4 sm:px-6 py-10 sm:py-14">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+              <div>
+                <h3 className="font-display font-bold text-2xl sm:text-3xl text-white mb-2">
+                  Sumá tu hotel a la red
+                </h3>
+                <p className="text-white/50 text-sm max-w-md">
+                  Convertí noches vacías en oportunidades. Sin comisiones, sin intermediarios.
+                </p>
+              </div>
+              <a
+                href="/register"
+                className="group inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 transition-all duration-300 shadow-lg shadow-primary/20"
+              >
+                Registrarse ahora
+                <ArrowUpRight className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </a>
             </div>
           </div>
-
-          {/* Link columns */}
-          {footerSections.map((section) => (
-            <div key={section.title}>
-              <h4 className="font-display font-semibold text-sm text-foreground mb-3">
-                {section.title}
-              </h4>
-              <ul className="space-y-2">
-                {section.links.map((link) => (
-                  <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
         </div>
 
-        {/* Contact + bottom */}
-        <div className="border-t border-border pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Swap Hotels. Todos los derechos reservados.
-          </p>
-          <div className="flex flex-wrap items-center gap-4 text-xs text-muted-foreground">
-            <a href="mailto:info@swaphotels.com" className="flex items-center gap-1 hover:text-primary transition-colors">
-              <Mail className="w-3 h-3" />
-              info@swaphotels.com
-            </a>
-            <span className="hidden sm:inline">·</span>
-            <a href="#" className="hover:text-primary transition-colors">Términos y Condiciones</a>
-            <span className="hidden sm:inline">·</span>
-            <a href="#" className="hover:text-primary transition-colors">Política de Privacidad</a>
+        {/* Highlights bar */}
+        <div className="border-b border-white/10">
+          <div className="container mx-auto px-4 sm:px-6 py-5">
+            <div className="flex flex-wrap items-center justify-center gap-8">
+              {highlights.map((h) => {
+                const Icon = h.icon;
+                return (
+                  <div key={h.label} className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
+                      <Icon className="w-4 h-4 text-primary" />
+                    </div>
+                    <span className="text-xs font-medium text-white/60 tracking-wide uppercase">{h.label}</span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        {/* Main grid */}
+        <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-10 mb-12">
+            {/* Brand column */}
+            <div className="col-span-2 sm:col-span-3 lg:col-span-2 mb-2 lg:mb-0 pr-0 lg:pr-8">
+              <a href="/" className="flex items-center gap-3 mb-5">
+                <img src={logo} alt="Swap Hotels" className="h-10 w-auto" />
+                <span className="font-display font-bold text-xl text-white">
+                  Swap Hotels
+                </span>
+              </a>
+              <p className="text-sm text-white/40 leading-relaxed mb-6 max-w-sm">
+                La primera red de intercambio hotelero sin dinero de Latinoamérica. Colaboración real entre profesionales de la industria.
+              </p>
+
+              {/* Country flags */}
+              <div className="flex flex-wrap gap-2">
+                {countries.map((c) => (
+                  <span
+                    key={c.name}
+                    className="inline-flex items-center gap-1.5 text-xs text-white/50 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full hover:bg-white/10 transition-colors"
+                  >
+                    <span className="text-sm">{c.flag}</span>
+                    {c.name}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Link columns */}
+            {footerSections.map((section) => (
+              <div key={section.title}>
+                <h4 className="font-display font-semibold text-xs text-white/30 uppercase tracking-widest mb-4">
+                  {section.title}
+                </h4>
+                <ul className="space-y-3">
+                  {section.links.map((link) => (
+                    <li key={link.label}>
+                      <a
+                        href={link.href}
+                        className="text-sm text-white/60 hover:text-white transition-colors duration-200 inline-flex items-center gap-1 group"
+                      >
+                        {link.label}
+                        <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-0.5 translate-x-0.5 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all" />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="border-t border-white/10">
+          <div className="container mx-auto px-4 sm:px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-xs text-white/30">
+              © {new Date().getFullYear()} Swap Hotels. Todos los derechos reservados.
+            </p>
+            <div className="flex flex-wrap items-center gap-5 text-xs text-white/30">
+              <a href="mailto:info@swaphotels.com" className="flex items-center gap-1.5 hover:text-white/60 transition-colors">
+                <Mail className="w-3.5 h-3.5" />
+                info@swaphotels.com
+              </a>
+              <span className="hidden sm:inline text-white/10">|</span>
+              <a href="#" className="hover:text-white/60 transition-colors">Términos</a>
+              <span className="hidden sm:inline text-white/10">|</span>
+              <a href="#" className="hover:text-white/60 transition-colors">Privacidad</a>
+            </div>
           </div>
         </div>
       </div>
