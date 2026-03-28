@@ -8,7 +8,7 @@ const navItems = [
   { label: "Hoteles", href: "#hotels" },
   { label: "Pool de Swaps", href: "#pool" },
   { label: "Cómo Funciona", href: "#flow" },
-  { label: "Membresías", href: "#pricing" },
+  { label: "Membresías", href: "/membresias" },
 ];
 
 const Navbar = () => {
