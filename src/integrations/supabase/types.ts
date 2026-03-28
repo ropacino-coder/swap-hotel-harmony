@@ -14,6 +14,129 @@ export type Database = {
   }
   public: {
     Tables: {
+      hotels: {
+        Row: {
+          address: string
+          amenities: string[]
+          available_seasons: string[]
+          cancellation_policy: string
+          category: string
+          check_in_time: string
+          check_out_time: string
+          children_policy: string
+          city: string
+          contact_email: string
+          contact_phone: string
+          country: string
+          created_at: string
+          description: string
+          environment: string
+          highlights: string[]
+          hotel_registration_number: string | null
+          id: string
+          is_verified: boolean
+          latitude: number | null
+          legal_name: string
+          longitude: number | null
+          max_pax_per_room: number
+          name: string
+          pet_policy: string
+          photos: string[]
+          postal_code: string
+          province: string
+          room_types: Json
+          rooms_for_swap: number
+          stars: number
+          status: string
+          su_per_night: number
+          tax_id: string
+          total_rooms: number
+          updated_at: string
+          user_id: string
+          website: string | null
+        }
+        Insert: {
+          address?: string
+          amenities?: string[]
+          available_seasons?: string[]
+          cancellation_policy?: string
+          category?: string
+          check_in_time?: string
+          check_out_time?: string
+          children_policy?: string
+          city?: string
+          contact_email?: string
+          contact_phone?: string
+          country?: string
+          created_at?: string
+          description?: string
+          environment?: string
+          highlights?: string[]
+          hotel_registration_number?: string | null
+          id?: string
+          is_verified?: boolean
+          latitude?: number | null
+          legal_name?: string
+          longitude?: number | null
+          max_pax_per_room?: number
+          name: string
+          pet_policy?: string
+          photos?: string[]
+          postal_code?: string
+          province?: string
+          room_types?: Json
+          rooms_for_swap?: number
+          stars?: number
+          status?: string
+          su_per_night?: number
+          tax_id?: string
+          total_rooms?: number
+          updated_at?: string
+          user_id: string
+          website?: string | null
+        }
+        Update: {
+          address?: string
+          amenities?: string[]
+          available_seasons?: string[]
+          cancellation_policy?: string
+          category?: string
+          check_in_time?: string
+          check_out_time?: string
+          children_policy?: string
+          city?: string
+          contact_email?: string
+          contact_phone?: string
+          country?: string
+          created_at?: string
+          description?: string
+          environment?: string
+          highlights?: string[]
+          hotel_registration_number?: string | null
+          id?: string
+          is_verified?: boolean
+          latitude?: number | null
+          legal_name?: string
+          longitude?: number | null
+          max_pax_per_room?: number
+          name?: string
+          pet_policy?: string
+          photos?: string[]
+          postal_code?: string
+          province?: string
+          room_types?: Json
+          rooms_for_swap?: number
+          stars?: number
+          status?: string
+          su_per_night?: number
+          tax_id?: string
+          total_rooms?: number
+          updated_at?: string
+          user_id?: string
+          website?: string | null
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           created_at: string
