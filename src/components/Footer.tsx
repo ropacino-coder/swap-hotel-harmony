@@ -29,13 +29,6 @@ const footerSections = [
       { label: "Beneficios", href: "#benefits" },
     ],
   },
-  {
-    title: "Cuenta",
-    links: [
-      { label: "Registrarse", href: "/register" },
-      { label: "Iniciar Sesión", href: "/login" },
-    ],
-  },
 ];
 
 const countries = ["Argentina", "Uruguay", "Chile", "Paraguay"];
