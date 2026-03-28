@@ -42,7 +42,7 @@ const HospitalityCodeSection = () => {
           <span className="text-sm font-semibold text-primary uppercase tracking-widest">
             Nuestro código
           </span>
-          <h2 className="text-3xl md:text-5xl font-display font-bold mt-3 mb-4 text-balance">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold mt-3 mb-4 text-balance">
             El Código de la{" "}
             <span className="gold-text">Hospitalidad Pura</span>
           </h2>

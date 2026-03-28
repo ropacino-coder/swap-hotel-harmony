@@ -57,7 +57,7 @@ const SUCalculator = () => {
           <span className="text-sm font-semibold text-primary uppercase tracking-widest">
             Simulador
           </span>
-          <h2 className="text-3xl md:text-5xl font-display font-bold mt-3 mb-4 text-balance">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold mt-3 mb-4 text-balance">
             Calculadora de{" "}
             <span className="gold-text">Swap Units</span>
           </h2>

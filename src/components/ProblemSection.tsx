@@ -38,7 +38,7 @@ const ProblemSection = () => {
               initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
               animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="text-3xl md:text-5xl font-display font-bold mt-3 mb-4 text-balance"
+              className="text-2xl sm:text-3xl md:text-5xl font-display font-bold mt-3 mb-4 text-balance"
             >
               La hotelería tiene un problema{" "}
               <span className="gold-text">estructural</span>

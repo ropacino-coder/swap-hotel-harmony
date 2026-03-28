@@ -60,7 +60,7 @@ const OnboardingSection = () => {
           <span className="text-sm font-semibold text-primary uppercase tracking-widest">
             Onboarding
           </span>
-          <h2 className="text-3xl md:text-5xl font-display font-bold mt-3 mb-4 text-balance">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold mt-3 mb-4 text-balance">
             5 pasos para{" "}
             <span className="gold-text">activar tu hotel</span>
           </h2>

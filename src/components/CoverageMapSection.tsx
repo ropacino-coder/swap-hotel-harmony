@@ -326,7 +326,7 @@ const CoverageMapSection = () => {
           <span className="text-sm font-semibold text-primary uppercase tracking-widest">
             Cobertura
           </span>
-          <h2 className="text-3xl md:text-5xl font-display font-bold mt-3 mb-4 text-balance">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold mt-3 mb-4 text-balance">
             Presentes en <span className="gold-text">4 países</span>
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto text-balance">

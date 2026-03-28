@@ -53,7 +53,7 @@ const TechnologySection = () => {
           <span className="text-sm font-semibold text-primary uppercase tracking-widest">
             Tecnología
           </span>
-          <h2 className="text-3xl md:text-5xl font-display font-bold mt-3 mb-4 text-balance">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold mt-3 mb-4 text-balance">
             Tecnología como{" "}
             <span className="gold-text">garantía</span>
           </h2>

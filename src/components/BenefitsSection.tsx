@@ -57,7 +57,7 @@ const BenefitsSection = () => {
           <span className="text-sm font-semibold text-primary uppercase tracking-widest">
             Beneficios
           </span>
-          <h2 className="text-3xl md:text-5xl font-display font-bold mt-3 mb-4 text-balance">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold mt-3 mb-4 text-balance">
             ¿Por qué{" "}
             <span className="gold-text">Swap Hotels</span>?
           </h2>

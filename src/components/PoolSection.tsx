@@ -48,7 +48,7 @@ const PoolSection = () => {
           <span className="text-sm font-semibold text-primary uppercase tracking-widest">
             Pool de Swaps
           </span>
-          <h2 className="text-3xl md:text-5xl font-display font-bold mt-3 mb-4 text-balance">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold mt-3 mb-4 text-balance">
             El corazón de{" "}
             <span className="gold-text">Swap Hotels</span>
           </h2>

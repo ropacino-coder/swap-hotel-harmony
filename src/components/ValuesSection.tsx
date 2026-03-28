@@ -56,7 +56,7 @@ const ValuesSection = () => {
           <span className="text-sm font-semibold text-primary uppercase tracking-widest">
             Nuestros valores
           </span>
-          <h2 className="text-3xl md:text-5xl font-display font-bold mt-3 text-balance">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold mt-3 text-balance">
             Lo que nos <span className="gold-text">define</span>
           </h2>
         </motion.div>

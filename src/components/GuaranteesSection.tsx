@@ -65,7 +65,7 @@ const GuaranteesSection = () => {
           <span className="text-sm font-semibold text-primary uppercase tracking-widest">
             Nuestras garantías
           </span>
-          <h2 className="text-3xl md:text-5xl font-display font-bold mt-3 mb-4 text-balance">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold mt-3 mb-4 text-balance">
             Seguridad como <span className="gold-text">pilar</span>
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto text-balance">
