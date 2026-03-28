@@ -1,5 +1,5 @@
 import { motion, useInView } from "framer-motion";
-import { useRef, useState, useMemo } from "react";
+import { useRef } from "react";
 import {
   DollarSign,
   Crown,
@@ -9,7 +9,7 @@ import {
   ShieldCheck,
   Clock,
   AlertTriangle,
-  Calculator,
+  
   CreditCard,
   FileText,
   Scale,
@@ -119,28 +119,6 @@ const feeIncludes = [
 
 const feeExcludes = ["Alojamiento", "Pasajes", "Gastos externos", "Seguros del huésped"];
 
-/* ─── Calculadora SU ─── */
-const categories = [
-  { label: "Select (2★)", base: 80 },
-  { label: "Superior (3★)", base: 120 },
-  { label: "Premier (4★)", base: 170 },
-  { label: "Elite (5★)", base: 240 },
-];
-const roomTypes = [
-  { label: "Estándar", mult: 1.0 },
-  { label: "Superior", mult: 1.2 },
-  { label: "Deluxe", mult: 1.4 },
-  { label: "Suite", mult: 1.6 },
-];
-const occupancies = [
-  { pax: 2, mult: 1.0 },
-  { pax: 3, mult: 1.4 },
-  { pax: 4, mult: 1.8 },
-  { pax: 6, mult: 2.5 },
-  { pax: 8, mult: 3.2 },
-  { pax: 10, mult: 3.8 },
-  { pax: 12, mult: 4.4 },
-];
 
 /* ─── Membership Rules ─── */
 const membershipRules = [
@@ -175,21 +153,6 @@ const PricingSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
-  // Calculator state
-  const [catIdx, setCatIdx] = useState(1);
-  const [roomIdx, setRoomIdx] = useState(0);
-  const [occIdx, setOccIdx] = useState(0);
-  const [nights, setNights] = useState(3);
-
-  const result = useMemo(() => {
-    const base = categories[catIdx].base;
-    const room = roomTypes[roomIdx].mult;
-    const occ = occupancies[occIdx].mult;
-    return Math.round(base * room * occ * nights * 10) / 10;
-  }, [catIdx, roomIdx, occIdx, nights]);
-
-  const selectClass =
-    "w-full px-4 py-3 rounded-xl bg-secondary border border-border text-foreground appearance-none focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all cursor-pointer text-sm";
 
   return (
     <section id="pricing" className="py-12 sm:py-16 relative" ref={ref}>
@@ -381,79 +344,6 @@ const PricingSection = () => {
               </div>
             </motion.div>
           </div>
-        </div>
-
-        {/* ═══════════ CALCULADORA SU ═══════════ */}
-        <div className="mb-14">
-          <motion.h3
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            className="text-xl sm:text-2xl font-display font-bold text-center mb-2"
-          >
-            <Calculator className="inline w-5 h-5 mr-2 text-primary" />
-            Calculadora de Swap Units
-          </motion.h3>
-          <p className="text-center text-sm text-muted-foreground mb-6 max-w-xl mx-auto">
-            Fórmula: SU = Valor Base × Tipo Habitación × Ocupación × Noches
-          </p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            className="glass-card p-5 sm:p-8 max-w-2xl mx-auto"
-          >
-            <div className="grid sm:grid-cols-2 gap-4 mb-5">
-              <div>
-                <label className="block text-sm font-medium text-muted-foreground mb-2">Categoría del hotel</label>
-                <select value={catIdx} onChange={(e) => setCatIdx(Number(e.target.value))} className={selectClass}>
-                  {categories.map((c, i) => (
-                    <option key={c.label} value={i}>{c.label} — {c.base} SU base</option>
-                  ))}
-                </select>
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-muted-foreground mb-2">Tipo de habitación</label>
-                <select value={roomIdx} onChange={(e) => setRoomIdx(Number(e.target.value))} className={selectClass}>
-                  {roomTypes.map((r, i) => (
-                    <option key={r.label} value={i}>{r.label} — {r.mult}x</option>
-                  ))}
-                </select>
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-muted-foreground mb-2">Ocupación</label>
-                <select value={occIdx} onChange={(e) => setOccIdx(Number(e.target.value))} className={selectClass}>
-                  {occupancies.map((o, i) => (
-                    <option key={o.pax} value={i}>{o.pax} personas — {o.mult}x</option>
-                  ))}
-                </select>
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-muted-foreground mb-2">Noches</label>
-                <div className="flex items-center gap-3">
-                  <button onClick={() => setNights(Math.max(1, nights - 1))} className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center text-lg font-bold hover:bg-primary/20 transition-colors">−</button>
-                  <span className="flex-1 text-center text-2xl font-display font-bold">{nights}</span>
-                  <button onClick={() => setNights(Math.min(30, nights + 1))} className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center text-lg font-bold hover:bg-primary/20 transition-colors">+</button>
-                </div>
-              </div>
-            </div>
-
-            <div className="p-5 rounded-2xl border border-primary/30 bg-primary/5 text-center">
-              <p className="text-sm text-muted-foreground mb-1">Swap Units necesarias</p>
-              <motion.div
-                key={result}
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.3, type: "spring" }}
-                className="text-4xl sm:text-5xl font-display font-bold gold-text"
-              >
-                {result.toLocaleString("es-AR")}
-              </motion.div>
-              <p className="text-xs text-muted-foreground mt-2">
-                {categories[catIdx].base} base × {roomTypes[roomIdx].mult}x hab × {occupancies[occIdx].mult}x occ × {nights} noches
-              </p>
-            </div>
-          </motion.div>
         </div>
 
         {/* ═══════════ REGLAS DE MEMBRESÍA ═══════════ */}
