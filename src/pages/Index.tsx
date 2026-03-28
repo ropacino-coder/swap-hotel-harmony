@@ -5,7 +5,7 @@ import OnboardingSection from "@/components/OnboardingSection";
 import ExchangeFlowSection from "@/components/ExchangeFlowSection";
 import PricingSection from "@/components/PricingSection";
 import SUCalculator from "@/components/SUCalculator";
-import BlockchainSection from "@/components/BlockchainSection";
+import TechnologySection from "@/components/TechnologySection";
 import BenefitsSection from "@/components/BenefitsSection";
 import JoinSection from "@/components/JoinSection";
 import Footer from "@/components/Footer";
@@ -20,7 +20,7 @@ const Index = () => {
       <ExchangeFlowSection />
       <PricingSection />
       <SUCalculator />
-      <BlockchainSection />
+      <TechnologySection />
       <BenefitsSection />
       <JoinSection />
       <Footer />
