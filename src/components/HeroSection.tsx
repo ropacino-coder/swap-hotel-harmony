@@ -26,7 +26,7 @@ const HeroSection = () => {
           width={1920}
           height={1080}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-card/95 via-card/80 to-card/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-card/80 via-card/60 to-card/80" />
       </motion.div>
 
       {/* Floating particles */}
@@ -58,7 +58,7 @@ const HeroSection = () => {
         className="relative z-10 container mx-auto px-4 sm:px-6 pt-20 sm:pt-28 pb-10 sm:pb-16"
         style={{ y: textY, opacity }}
       >
-        <motion.div className="max-w-2xl">
+        <motion.div className="max-w-2xl mx-auto text-center">
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8, filter: "blur(10px)" }}
@@ -106,7 +106,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ delay: 0.9, duration: 0.8 }}
-            className="text-base sm:text-lg text-muted-foreground max-w-lg mb-8 sm:mb-10 text-balance"
+            className="text-base sm:text-lg text-muted-foreground max-w-lg mx-auto mb-8 sm:mb-10 text-balance"
           >
             La primera plataforma donde hoteleros de Argentina, Uruguay,
             Chile y Paraguay intercambian alojamiento en temporada media y baja
