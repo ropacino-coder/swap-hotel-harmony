@@ -25,7 +25,7 @@ const ProblemSection = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.div className="max-w-4xl mx-auto">
-          <div className="text-center mb-8">
+          <div className="text-center mb-5">
             <motion.span
               initial={{ opacity: 0, y: 10 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}

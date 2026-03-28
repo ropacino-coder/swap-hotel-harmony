@@ -25,7 +25,7 @@ const IdeaSection = () => {
             <span className="text-sm font-semibold text-primary uppercase tracking-widest">
               El giro colaborativo
             </span>
-            <h2 className="text-3xl md:text-4xl font-display font-bold mt-3 mb-8 text-balance">
+            <h2 className="text-3xl md:text-4xl font-display font-bold mt-3 mb-5 text-balance">
               Swap Hotels propone algo{" "}
               <span className="gold-text">distinto</span>
             </h2>

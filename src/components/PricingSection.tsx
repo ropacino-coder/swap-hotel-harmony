@@ -39,7 +39,7 @@ const PricingSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-8"
+          className="text-center mb-5"
         >
           <span className="text-sm font-semibold text-primary uppercase tracking-widest">
             Tarifas y Valores
@@ -103,7 +103,7 @@ const PricingSection = () => {
             <p className="text-xs text-muted-foreground mb-6">
               Multiplicador sobre el valor base
             </p>
-            <div className="space-y-3 mb-8">
+            <div className="space-y-3 mb-5">
               {roomTypes.map((room) => (
                 <div
                   key={room.type}

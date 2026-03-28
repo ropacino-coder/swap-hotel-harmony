@@ -72,7 +72,7 @@ const SUCalculator = () => {
           transition={{ delay: 0.3, duration: 0.8 }}
           className="glass-card p-8 md:p-10 max-w-2xl mx-auto"
         >
-          <div className="grid sm:grid-cols-2 gap-5 mb-8">
+          <div className="grid sm:grid-cols-2 gap-5 mb-5">
             {/* Category */}
             <div>
               <label className="block text-sm font-medium text-muted-foreground mb-2">

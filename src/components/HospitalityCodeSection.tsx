@@ -52,7 +52,7 @@ const HospitalityCodeSection = () => {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ delay: 0.3, duration: 0.6 }}
-          className="text-center text-lg text-muted-foreground italic mb-8 max-w-xl mx-auto"
+          className="text-center text-lg text-muted-foreground italic mb-5 max-w-xl mx-auto"
         >
           "En nuestra red, el valor no se mide en billetes, se mide en noches compartidas."
         </motion.p>
