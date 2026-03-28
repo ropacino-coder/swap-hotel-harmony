@@ -1,5 +1,8 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import DescriptionSection from "@/components/DescriptionSection";
+import ProblemSection from "@/components/ProblemSection";
+import IdeaSection from "@/components/IdeaSection";
 import HotelListingSection from "@/components/HotelListingSection";
 import PoolSection from "@/components/PoolSection";
 import OnboardingSection from "@/components/OnboardingSection";
@@ -7,7 +10,13 @@ import ExchangeFlowSection from "@/components/ExchangeFlowSection";
 import PricingSection from "@/components/PricingSection";
 import SUCalculator from "@/components/SUCalculator";
 import TechnologySection from "@/components/TechnologySection";
+import ValuesSection from "@/components/ValuesSection";
+import GuaranteesSection from "@/components/GuaranteesSection";
+import HospitalityCodeSection from "@/components/HospitalityCodeSection";
+import EconomySection from "@/components/EconomySection";
 import BenefitsSection from "@/components/BenefitsSection";
+import TipsSection from "@/components/TipsSection";
+import FAQSection from "@/components/FAQSection";
 import JoinSection from "@/components/JoinSection";
 import Footer from "@/components/Footer";
 
@@ -16,14 +25,23 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <HeroSection />
+      <DescriptionSection />
+      <ProblemSection />
+      <IdeaSection />
       <HotelListingSection />
       <PoolSection />
       <OnboardingSection />
       <ExchangeFlowSection />
       <PricingSection />
       <SUCalculator />
+      <ValuesSection />
+      <HospitalityCodeSection />
+      <GuaranteesSection />
       <TechnologySection />
+      <EconomySection />
       <BenefitsSection />
+      <TipsSection />
+      <FAQSection />
       <JoinSection />
       <Footer />
     </div>
