@@ -7,6 +7,8 @@ import {
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import HotelMapSection from "@/components/HotelMapSection";
+import HotelTourismAI from "@/components/HotelTourismAI";
 import { hotels, amenityIcons, categoryColors } from "@/data/hotels";
 
 const occupancies = [
@@ -268,6 +270,22 @@ const HotelDetail = () => {
                 ))}
               </div>
             </motion.div>
+
+            {/* Map */}
+            <HotelMapSection
+              name={hotel.name}
+              location={hotel.location}
+              lat={hotel.lat}
+              lng={hotel.lng}
+            />
+
+            {/* AI Tourism */}
+            <HotelTourismAI
+              hotelName={hotel.name}
+              location={hotel.location}
+              environment={hotel.environment}
+              country={hotel.country}
+            />
           </div>
 
           {/* Right: SU Calculator sticky */}

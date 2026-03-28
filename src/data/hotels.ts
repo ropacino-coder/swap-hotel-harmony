@@ -28,6 +28,8 @@ export interface Hotel {
   checkIn: string;
   checkOut: string;
   roomTypes: { name: string; mult: number; description: string }[];
+  lat: number;
+  lng: number;
 }
 
 export const amenityIcons: Record<string, typeof Wifi> = {
@@ -69,6 +71,7 @@ export const hotels: Hotel[] = [
     description: "Ubicado frente a las mejores playas de Mar del Plata, combina elegancia costera con confort moderno.",
     highlights: ["Vista directa al mar", "A 200m de la playa principal", "Gastronomía gourmet", "Pileta climatizada"],
     checkIn: "14:00", checkOut: "10:00",
+    lat: -38.0055, lng: -57.5426,
     roomTypes: [
       { name: "Estándar", mult: 1.0, description: "Habitación cómoda con cama doble" },
       { name: "Superior", mult: 1.2, description: "Mayor espacio con vista parcial al mar" },
@@ -87,6 +90,7 @@ export const hotels: Hotel[] = [
     description: "En el corazón de la Patagonia, rodeado de bosques milenarios y lagos cristalinos.",
     highlights: ["Spa de montaña", "Cocina de autor patagónica", "Excursiones guiadas", "Ski-in / Ski-out"],
     checkIn: "15:00", checkOut: "11:00",
+    lat: -41.1335, lng: -71.3103,
     roomTypes: [
       { name: "Estándar", mult: 1.0, description: "Cabaña acogedora con chimenea" },
       { name: "Deluxe", mult: 1.4, description: "Cabaña premium con jacuzzi privado" },
@@ -105,6 +109,7 @@ export const hotels: Hotel[] = [
     description: "Rodeada de viñedos centenarios con la Cordillera de los Andes como telón de fondo.",
     highlights: ["Degustación de vinos incluida", "Cabalgatas por viñedos", "Cocina regional de autor"],
     checkIn: "14:00", checkOut: "10:00",
+    lat: -33.01, lng: -68.4972,
     roomTypes: [
       { name: "Estándar", mult: 1.0, description: "Habitación con vista al viñedo" },
       { name: "Superior", mult: 1.2, description: "Habitación con terraza privada" },
@@ -122,6 +127,7 @@ export const hotels: Hotel[] = [
     description: "En el fin del mundo, un refugio de ensueño a orillas de un lago escondido.",
     highlights: ["A orillas del lago", "Trekking guiado", "Navegación por el canal Beagle"],
     checkIn: "14:00", checkOut: "10:00",
+    lat: -54.8019, lng: -68.303,
     roomTypes: [
       { name: "Estándar", mult: 1.0, description: "Cabaña con vista al lago" },
       { name: "Superior", mult: 1.2, description: "Cabaña con deck privado" },
@@ -140,6 +146,7 @@ export const hotels: Hotel[] = [
     description: "Ícono de la hotelería porteña en Recoleta, lujo clásico europeo en el corazón de Buenos Aires.",
     highlights: ["Ubicación en Recoleta", "Spa de clase mundial", "Restaurante gourmet", "Terraza panorámica"],
     checkIn: "15:00", checkOut: "12:00",
+    lat: -34.5875, lng: -58.3936,
     roomTypes: [
       { name: "Estándar", mult: 1.0, description: "Habitación clásica con detalles de época" },
       { name: "Deluxe", mult: 1.4, description: "Vista a la Av. Alvear" },
@@ -158,6 +165,7 @@ export const hotels: Hotel[] = [
     description: "El resort más emblemático de la Patagonia, entre lagos y montañas nevadas.",
     highlights: ["Campo de golf 18 hoyos", "Spa con vista al lago", "Excursiones exclusivas"],
     checkIn: "15:00", checkOut: "11:00",
+    lat: -41.0559, lng: -71.5352,
     roomTypes: [
       { name: "Estándar", mult: 1.0, description: "Habitación lago" },
       { name: "Superior", mult: 1.2, description: "Vista al Nahuel Huapi" },
@@ -176,6 +184,7 @@ export const hotels: Hotel[] = [
     description: "En el centro histórico de Salta, arquitectura colonial con todas las comodidades modernas.",
     highlights: ["Plaza 9 de Julio a 1 cuadra", "Excursiones a Quebrada de Humahuaca", "Peñas folclóricas"],
     checkIn: "14:00", checkOut: "10:00",
+    lat: -24.7859, lng: -65.4117,
     roomTypes: [
       { name: "Estándar", mult: 1.0, description: "Habitación colonial" },
       { name: "Superior", mult: 1.2, description: "Con balcón a la plaza" },
@@ -193,6 +202,7 @@ export const hotels: Hotel[] = [
     description: "Resort termal sobre el río Uruguay con acceso directo a las termas de Federación.",
     highlights: ["Acceso directo a termas", "Spa termal privado", "Vista al río Uruguay"],
     checkIn: "14:00", checkOut: "10:00",
+    lat: -30.9558, lng: -57.9258,
     roomTypes: [
       { name: "Estándar", mult: 1.0, description: "Habitación con balcón" },
       { name: "Deluxe", mult: 1.4, description: "Suite termal con jacuzzi" },
@@ -210,6 +220,7 @@ export const hotels: Hotel[] = [
     description: "A minutos de las Cataratas del Iguazú, inmerso en la selva misionera.",
     highlights: ["Transfer a Cataratas", "Piscina en la selva", "Avistaje de aves"],
     checkIn: "14:00", checkOut: "10:00",
+    lat: -25.5972, lng: -54.5786,
     roomTypes: [
       { name: "Estándar", mult: 1.0, description: "Habitación selva" },
       { name: "Superior", mult: 1.2, description: "Vista a la selva con balcón" },
@@ -228,6 +239,7 @@ export const hotels: Hotel[] = [
     description: "En el bosque de Pinamar, a pasos de la playa, ideal para familias.",
     highlights: ["A 150m de la playa", "Bosque de pinos", "Actividades para niños"],
     checkIn: "14:00", checkOut: "10:00",
+    lat: -37.1083, lng: -56.8583,
     roomTypes: [
       { name: "Estándar", mult: 1.0, description: "Habitación doble" },
       { name: "Superior", mult: 1.2, description: "Triple con balcón" },
@@ -245,6 +257,7 @@ export const hotels: Hotel[] = [
     description: "Sobre la costanera del Paraná, diseño moderno con vistas al río.",
     highlights: ["Vista al río Paraná", "Rooftop bar", "Monumento a la Bandera a 5 min"],
     checkIn: "14:00", checkOut: "10:00",
+    lat: -32.9468, lng: -60.6393,
     roomTypes: [
       { name: "Estándar", mult: 1.0, description: "Ciudad" },
       { name: "Deluxe", mult: 1.4, description: "Vista al río" },
@@ -262,6 +275,7 @@ export const hotels: Hotel[] = [
     description: "En las sierras cordobesas con vista al lago San Roque.",
     highlights: ["Vista al lago", "Spa con sauna", "Trekking por las sierras"],
     checkIn: "14:00", checkOut: "10:00",
+    lat: -31.4214, lng: -64.4978,
     roomTypes: [
       { name: "Estándar", mult: 1.0, description: "Habitación sierras" },
       { name: "Superior", mult: 1.2, description: "Vista al lago" },
@@ -279,6 +293,7 @@ export const hotels: Hotel[] = [
     description: "Frente al Lago Argentino, base ideal para visitar el Perito Moreno.",
     highlights: ["Vista al Lago Argentino", "Excursión al Perito Moreno", "Restaurante patagónico"],
     checkIn: "15:00", checkOut: "11:00",
+    lat: -50.34, lng: -72.2647,
     roomTypes: [
       { name: "Estándar", mult: 1.0, description: "Vista lago" },
       { name: "Superior", mult: 1.2, description: "Balcón panorámico" },
@@ -297,6 +312,7 @@ export const hotels: Hotel[] = [
     description: "Apart acogedor en el centro de San Martín, ideal para esquiadores.",
     highlights: ["Centro a 2 cuadras", "Transfer a Chapelco", "Cocina equipada"],
     checkIn: "14:00", checkOut: "10:00",
+    lat: -40.1523, lng: -71.3531,
     roomTypes: [
       { name: "Estándar", mult: 1.0, description: "Monoambiente equipado" },
       { name: "Superior", mult: 1.2, description: "1 dormitorio con living" },
@@ -314,6 +330,7 @@ export const hotels: Hotel[] = [
     description: "En pleno centro tucumano, punto de partida para Tafí del Valle y las Yungas.",
     highlights: ["Centro histórico", "Empanadas tucumanas", "Excursiones a Tafí"],
     checkIn: "14:00", checkOut: "10:00",
+    lat: -26.8083, lng: -65.2176,
     roomTypes: [
       { name: "Estándar", mult: 1.0, description: "Habitación doble" },
     ],
@@ -332,6 +349,7 @@ export const hotels: Hotel[] = [
     description: "El resort más exclusivo de Punta del Este, lujo frente al océano.",
     highlights: ["Piscina infinita", "Beach club privado", "Spa premium", "Concierge personalizado"],
     checkIn: "15:00", checkOut: "11:00",
+    lat: -34.9667, lng: -54.95,
     roomTypes: [
       { name: "Estándar", mult: 1.0, description: "Habitación con terraza" },
       { name: "Superior", mult: 1.2, description: "Vista al mar" },
@@ -351,6 +369,7 @@ export const hotels: Hotel[] = [
     description: "En el corazón del Barrio Histórico, patrimonio UNESCO con encanto colonial.",
     highlights: ["Barrio Histórico UNESCO", "Vista al Río de la Plata", "Paseos en empedrado"],
     checkIn: "14:00", checkOut: "10:00",
+    lat: -34.4683, lng: -57.8403,
     roomTypes: [
       { name: "Estándar", mult: 1.0, description: "Habitación colonial" },
       { name: "Superior", mult: 1.2, description: "Vista al río" },
@@ -368,6 +387,7 @@ export const hotels: Hotel[] = [
     description: "Sobre la Rambla de Montevideo, entre Pocitos y Punta Carretas.",
     highlights: ["Vista a la Rambla", "Shopping Punta Carretas", "Gastronomía uruguaya"],
     checkIn: "14:00", checkOut: "10:00",
+    lat: -34.9058, lng: -56.1582,
     roomTypes: [
       { name: "Estándar", mult: 1.0, description: "Vista ciudad" },
       { name: "Deluxe", mult: 1.4, description: "Vista al mar con balcón" },
@@ -385,6 +405,7 @@ export const hotels: Hotel[] = [
     description: "Posada boutique en el pueblo más exclusivo de la costa uruguaya.",
     highlights: ["Faro de José Ignacio", "Atardeceres únicos", "Gastronomía de autor"],
     checkIn: "15:00", checkOut: "11:00",
+    lat: -34.85, lng: -54.6333,
     roomTypes: [
       { name: "Estándar", mult: 1.0, description: "Habitación con jardín" },
       { name: "Suite", mult: 1.6, description: "Suite con vista al mar" },
@@ -402,6 +423,7 @@ export const hotels: Hotel[] = [
     description: "Histórico hotel frente a la rambla de Piriápolis, clásico de la costa uruguaya.",
     highlights: ["Edificio histórico", "Frente al mar", "Cerro San Antonio"],
     checkIn: "14:00", checkOut: "10:00",
+    lat: -34.8658, lng: -55.2742,
     roomTypes: [
       { name: "Estándar", mult: 1.0, description: "Habitación clásica" },
       { name: "Superior", mult: 1.2, description: "Vista al mar" },
@@ -421,6 +443,7 @@ export const hotels: Hotel[] = [
     description: "Sobre la costa del Pacífico, la mejor combinación de playa y cultura chilena.",
     highlights: ["Frente al Pacífico", "Casino a 5 min", "Excursiones a Valparaíso"],
     checkIn: "14:00", checkOut: "10:00",
+    lat: -33.0153, lng: -71.55,
     roomTypes: [
       { name: "Estándar", mult: 1.0, description: "Vista ciudad" },
       { name: "Superior", mult: 1.2, description: "Vista al mar con balcón" },
@@ -439,6 +462,7 @@ export const hotels: Hotel[] = [
     description: "En el corazón de Providencia, a pasos del barrio gastronómico y Costanera Center.",
     highlights: ["Barrio Providencia", "Metro a 1 cuadra", "Rooftop con vista a Los Andes"],
     checkIn: "14:00", checkOut: "12:00",
+    lat: -33.4264, lng: -70.61,
     roomTypes: [
       { name: "Estándar", mult: 1.0, description: "Habitación ejecutiva" },
       { name: "Deluxe", mult: 1.4, description: "Vista cordillera" },
@@ -456,6 +480,7 @@ export const hotels: Hotel[] = [
     description: "Con vista al volcán Villarrica y al lago, aventura y relax en el sur de Chile.",
     highlights: ["Vista al volcán Villarrica", "Termas naturales", "Rafting y kayak"],
     checkIn: "14:00", checkOut: "10:00",
+    lat: -39.2822, lng: -71.9544,
     roomTypes: [
       { name: "Estándar", mult: 1.0, description: "Habitación lago" },
       { name: "Superior", mult: 1.2, description: "Vista al volcán" },
@@ -473,6 +498,7 @@ export const hotels: Hotel[] = [
     description: "Boutique hotel en el colorido Cerro Alegre, patrimonio UNESCO.",
     highlights: ["Cerro Alegre UNESCO", "Arte callejero", "Ascensores históricos"],
     checkIn: "14:00", checkOut: "10:00",
+    lat: -33.0436, lng: -71.6253,
     roomTypes: [
       { name: "Estándar", mult: 1.0, description: "Habitación con vista al puerto" },
     ],
@@ -489,6 +515,7 @@ export const hotels: Hotel[] = [
     description: "Lodge exclusivo con vista directa a las Torres, experiencia de naturaleza pura.",
     highlights: ["Vista a las Torres", "Trekking guiado", "Spa de montaña", "Cocina patagónica"],
     checkIn: "15:00", checkOut: "11:00",
+    lat: -51.2533, lng: -72.3436,
     roomTypes: [
       { name: "Estándar", mult: 1.0, description: "Habitación montaña" },
       { name: "Suite", mult: 1.6, description: "Suite Torres panorámica" },
@@ -508,6 +535,7 @@ export const hotels: Hotel[] = [
     description: "Histórico hotel con jardines tropicales en el centro de Asunción.",
     highlights: ["Jardines tropicales", "Piscina al aire libre", "Centro histórico"],
     checkIn: "14:00", checkOut: "10:00",
+    lat: -25.2822, lng: -57.6136,
     roomTypes: [
       { name: "Estándar", mult: 1.0, description: "Habitación jardín" },
       { name: "Superior", mult: 1.2, description: "Vista a la piscina" },
@@ -526,6 +554,7 @@ export const hotels: Hotel[] = [
     description: "Sobre la costanera de Encarnación, la playa dulce del Paraguay.",
     highlights: ["Costanera de Encarnación", "Playa San José", "Carnaval encarnaceno"],
     checkIn: "14:00", checkOut: "10:00",
+    lat: -27.3289, lng: -55.8675,
     roomTypes: [
       { name: "Estándar", mult: 1.0, description: "Habitación estándar" },
       { name: "Superior", mult: 1.2, description: "Vista a la costanera" },
@@ -543,6 +572,7 @@ export const hotels: Hotel[] = [
     description: "Estratégicamente ubicado en la Triple Frontera, cerca de Iguazú e Itaipú.",
     highlights: ["Triple Frontera", "Cerca de Itaipú", "Shopping de frontera"],
     checkIn: "14:00", checkOut: "10:00",
+    lat: -25.5097, lng: -54.6114,
     roomTypes: [
       { name: "Estándar", mult: 1.0, description: "Habitación doble" },
     ],
@@ -559,6 +589,7 @@ export const hotels: Hotel[] = [
     description: "En el corazón del Chaco paraguayo, experiencia única de naturaleza salvaje.",
     highlights: ["Safari por el Chaco", "Comunidades menonitas", "Avistaje de fauna"],
     checkIn: "14:00", checkOut: "10:00",
+    lat: -22.3447, lng: -59.9544,
     roomTypes: [
       { name: "Estándar", mult: 1.0, description: "Habitación con ventilador" },
     ],
@@ -575,6 +606,7 @@ export const hotels: Hotel[] = [
     description: "Resort familiar a orillas del lago Ypacaraí, el destino de verano paraguayo.",
     highlights: ["Orillas del lago", "Deportes acuáticos", "Vida nocturna en verano"],
     checkIn: "14:00", checkOut: "10:00",
+    lat: -25.3081, lng: -57.2908,
     roomTypes: [
       { name: "Estándar", mult: 1.0, description: "Habitación lago" },
       { name: "Superior", mult: 1.2, description: "Vista panorámica al lago" },
@@ -592,6 +624,7 @@ export const hotels: Hotel[] = [
     description: "En la capital del Guairá, puerta de entrada a las serranías y cascadas.",
     highlights: ["Saltos del Guairá", "Cultura guaraní", "Gastronomía típica"],
     checkIn: "14:00", checkOut: "10:00",
+    lat: -25.75, lng: -56.4333,
     roomTypes: [
       { name: "Estándar", mult: 1.0, description: "Habitación doble" },
     ],
