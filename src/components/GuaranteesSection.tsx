@@ -55,7 +55,7 @@ const GuaranteesSection = () => {
     <section id="guarantees" className="py-8 relative" ref={ref}>
       <div className="absolute inset-0 bg-muted/30" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -65,7 +65,7 @@ const GuaranteesSection = () => {
           <span className="text-sm font-semibold text-primary uppercase tracking-widest">
             Nuestras garantías
           </span>
-          <h2 className="text-3xl md:text-5xl font-display font-bold mt-3 mb-4 text-balance">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold mt-3 mb-4 text-balance">
             Seguridad como <span className="gold-text">pilar</span>
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto text-balance">
@@ -80,7 +80,7 @@ const GuaranteesSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.1 * i, duration: 0.5 }}
-              className="glass-card-hover p-7 group relative overflow-hidden"
+              className="glass-card-hover p-5 sm:p-7 group relative overflow-hidden"
             >
               <span className="absolute top-4 right-5 text-4xl font-display font-bold text-border/60 group-hover:text-primary/15 transition-colors">
                 {g.number}

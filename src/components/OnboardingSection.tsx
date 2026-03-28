@@ -50,7 +50,7 @@ const OnboardingSection = () => {
     <section id="onboarding" className="py-8 relative" ref={ref}>
       <div className="absolute inset-0 bg-muted/30" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -60,7 +60,7 @@ const OnboardingSection = () => {
           <span className="text-sm font-semibold text-primary uppercase tracking-widest">
             Onboarding
           </span>
-          <h2 className="text-3xl md:text-5xl font-display font-bold mt-3 mb-4 text-balance">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold mt-3 mb-4 text-balance">
             5 pasos para{" "}
             <span className="gold-text">activar tu hotel</span>
           </h2>

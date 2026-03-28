@@ -47,7 +47,7 @@ const BenefitsSection = () => {
 
   return (
     <section id="benefits" className="py-8 relative" ref={ref}>
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -57,7 +57,7 @@ const BenefitsSection = () => {
           <span className="text-sm font-semibold text-primary uppercase tracking-widest">
             Beneficios
           </span>
-          <h2 className="text-3xl md:text-5xl font-display font-bold mt-3 mb-4 text-balance">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold mt-3 mb-4 text-balance">
             ¿Por qué{" "}
             <span className="gold-text">Swap Hotels</span>?
           </h2>
@@ -70,7 +70,7 @@ const BenefitsSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.1 * i, duration: 0.5 }}
-              className="glass-card-hover p-7 group"
+              className="glass-card-hover p-5 sm:p-7 group"
             >
               <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
                 <b.icon className="w-6 h-6 text-primary" />

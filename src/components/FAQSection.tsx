@@ -96,7 +96,7 @@ const FAQSection = () => {
 
   return (
     <section id="faq" className="py-8 relative" ref={ref}>
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -106,7 +106,7 @@ const FAQSection = () => {
           <span className="text-sm font-semibold text-primary uppercase tracking-widest">
             FAQ
           </span>
-          <h2 className="text-3xl md:text-5xl font-display font-bold mt-3 mb-4 text-balance">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold mt-3 mb-4 text-balance">
             Preguntas <span className="gold-text">frecuentes</span>
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto text-balance">

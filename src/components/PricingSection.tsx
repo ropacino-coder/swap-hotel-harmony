@@ -34,7 +34,7 @@ const PricingSection = () => {
     <section id="pricing" className="py-8 relative" ref={ref}>
       <div className="absolute inset-0 bg-muted/30" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -44,7 +44,7 @@ const PricingSection = () => {
           <span className="text-sm font-semibold text-primary uppercase tracking-widest">
             Tarifas y Valores
           </span>
-          <h2 className="text-3xl md:text-5xl font-display font-bold mt-3 mb-4 text-balance">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold mt-3 mb-4 text-balance">
             Transparencia en cada{" "}
             <span className="gold-text">número</span>
           </h2>
@@ -53,7 +53,7 @@ const PricingSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
           {/* Fee Table */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}

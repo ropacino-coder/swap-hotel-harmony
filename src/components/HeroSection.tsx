@@ -55,7 +55,7 @@ const HeroSection = () => {
 
       {/* Content with parallax */}
       <motion.div
-        className="relative z-10 container mx-auto px-6 pt-28 pb-16"
+        className="relative z-10 container mx-auto px-4 sm:px-6 pt-20 sm:pt-28 pb-10 sm:pb-16"
         style={{ y: textY, opacity }}
       >
         <motion.div className="max-w-2xl">
@@ -64,7 +64,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.8, filter: "blur(10px)" }}
             animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/5 mb-8"
+            className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-primary/30 bg-primary/5 mb-5 sm:mb-8"
           >
             <motion.span
               className="w-2 h-2 rounded-full bg-primary"
@@ -81,7 +81,7 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="text-4xl sm:text-5xl md:text-6xl font-display font-800 leading-[1.08] mb-6 text-balance"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-800 leading-[1.08] mb-4 sm:mb-6 text-balance"
           >
             <motion.span
               className="inline-block"
@@ -106,7 +106,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ delay: 0.9, duration: 0.8 }}
-            className="text-lg text-muted-foreground max-w-lg mb-10 text-balance"
+            className="text-base sm:text-lg text-muted-foreground max-w-lg mb-8 sm:mb-10 text-balance"
           >
             La primera plataforma donde hoteleros de Argentina, Uruguay,
             Chile y Paraguay intercambian alojamiento en temporada media y baja
@@ -125,7 +125,7 @@ const HeroSection = () => {
               href="/register"
               whileHover={{ scale: 1.04, boxShadow: "0 8px 30px hsla(35, 75%, 42%, 0.3)" }}
               whileTap={{ scale: 0.97 }}
-              className="group flex items-center gap-2 px-8 py-4 rounded-full bg-primary text-primary-foreground font-semibold text-lg transition-all duration-300 gold-glow"
+              className="group flex items-center gap-2 px-6 py-3 sm:px-8 sm:py-4 rounded-full bg-primary text-primary-foreground font-semibold text-base sm:text-lg transition-all duration-300 gold-glow"
             >
               Sumá tu hotel
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -134,7 +134,7 @@ const HeroSection = () => {
               href="#hotels"
               whileHover={{ scale: 1.03, borderColor: "hsl(35, 75%, 42%)" }}
               whileTap={{ scale: 0.97 }}
-              className="flex items-center gap-2 px-8 py-4 rounded-full border border-border text-foreground font-medium text-lg hover:text-primary transition-all duration-300"
+              className="flex items-center gap-2 px-6 py-3 sm:px-8 sm:py-4 rounded-full border border-border text-foreground font-medium text-base sm:text-lg hover:text-primary transition-all duration-300"
             >
               Explorar hoteles
             </motion.a>
@@ -142,7 +142,7 @@ const HeroSection = () => {
         </motion.div>
 
         {/* Floating stats with stagger */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl">
+        <div className="mt-10 sm:mt-16 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-2xl">
           {[
             { value: "12", unit: "meses", label: "Vigencia SU (FIFO)" },
             { value: "4", unit: "países", label: "ARG · URU · CHI · PAR" },

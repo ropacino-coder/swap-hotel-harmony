@@ -46,7 +46,7 @@ const ValuesSection = () => {
 
   return (
     <section className="py-8 relative" ref={ref}>
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
           animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
@@ -56,7 +56,7 @@ const ValuesSection = () => {
           <span className="text-sm font-semibold text-primary uppercase tracking-widest">
             Nuestros valores
           </span>
-          <h2 className="text-3xl md:text-5xl font-display font-bold mt-3 text-balance">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold mt-3 text-balance">
             Lo que nos <span className="gold-text">define</span>
           </h2>
         </motion.div>

@@ -23,7 +23,7 @@ const ProblemSection = () => {
     <section className="py-8 relative" ref={ref}>
       <motion.div className="absolute inset-0 bg-muted/40" style={{ opacity: bgOpacity }} />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <motion.div className="max-w-4xl mx-auto">
           <div className="text-center mb-5">
             <motion.span
@@ -38,7 +38,7 @@ const ProblemSection = () => {
               initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
               animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="text-3xl md:text-5xl font-display font-bold mt-3 mb-4 text-balance"
+              className="text-2xl sm:text-3xl md:text-5xl font-display font-bold mt-3 mb-4 text-balance"
             >
               La hotelería tiene un problema{" "}
               <span className="gold-text">estructural</span>

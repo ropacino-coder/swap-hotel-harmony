@@ -47,7 +47,7 @@ const SUCalculator = () => {
 
   return (
     <section id="calculator" className="py-8 relative" ref={ref}>
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -57,7 +57,7 @@ const SUCalculator = () => {
           <span className="text-sm font-semibold text-primary uppercase tracking-widest">
             Simulador
           </span>
-          <h2 className="text-3xl md:text-5xl font-display font-bold mt-3 mb-4 text-balance">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold mt-3 mb-4 text-balance">
             Calculadora de{" "}
             <span className="gold-text">Swap Units</span>
           </h2>
@@ -70,7 +70,7 @@ const SUCalculator = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.3, duration: 0.8 }}
-          className="glass-card p-8 md:p-10 max-w-2xl mx-auto"
+          className="glass-card p-5 sm:p-8 md:p-10 max-w-2xl mx-auto"
         >
           <div className="grid sm:grid-cols-2 gap-5 mb-5">
             {/* Category */}
@@ -162,7 +162,7 @@ const SUCalculator = () => {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.3, type: "spring" }}
-              className="text-5xl md:text-6xl font-display font-bold gold-text"
+              className="text-4xl sm:text-5xl md:text-6xl font-display font-bold gold-text"
             >
               {result.toLocaleString("es-AR")}
             </motion.div>

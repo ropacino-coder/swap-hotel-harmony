@@ -32,7 +32,7 @@ const HospitalityCodeSection = () => {
     <section className="py-8 relative overflow-hidden" ref={ref}>
       <div className="absolute inset-0 bg-muted/30" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -42,7 +42,7 @@ const HospitalityCodeSection = () => {
           <span className="text-sm font-semibold text-primary uppercase tracking-widest">
             Nuestro código
           </span>
-          <h2 className="text-3xl md:text-5xl font-display font-bold mt-3 mb-4 text-balance">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold mt-3 mb-4 text-balance">
             El Código de la{" "}
             <span className="gold-text">Hospitalidad Pura</span>
           </h2>
@@ -64,7 +64,7 @@ const HospitalityCodeSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.3 + i * 0.15, duration: 0.5 }}
-              className="glass-card p-8 relative group hover:shadow-[var(--shadow-card-hover)] transition-all duration-500"
+              className="glass-card p-5 sm:p-8 relative group hover:shadow-[var(--shadow-card-hover)] transition-all duration-500"
             >
               <span className="absolute top-5 right-6 text-5xl font-display font-bold text-border/50 group-hover:text-primary/15 transition-colors">
                 {p.number}

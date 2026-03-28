@@ -24,12 +24,12 @@ const JoinSection = () => {
     <section id="join" className="py-8 relative" ref={ref}>
       <div className="absolute inset-0 bg-muted/30" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 40, scale: 0.95 }}
           animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="glass-card p-8 md:p-12 max-w-3xl mx-auto text-center relative overflow-hidden"
+          className="glass-card p-5 sm:p-8 md:p-12 max-w-3xl mx-auto text-center relative overflow-hidden"
         >
           {/* Animated glow */}
           <motion.div
@@ -43,7 +43,7 @@ const JoinSection = () => {
               initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
               animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="text-3xl md:text-4xl font-display font-bold mb-4 text-balance"
+              className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-4 text-balance"
             >
               Sé parte del futuro del{" "}
               <span className="gold-text">intercambio hotelero</span>
