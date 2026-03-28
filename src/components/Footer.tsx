@@ -7,6 +7,7 @@ const footerSections = [
     title: "Plataforma",
     links: [
       { label: "Cómo Funciona", href: "/como-funciona" },
+      { label: "Swap Units & Pool", href: "/swap-units" },
       { label: "Membresías & Tarifas", href: "/membresias" },
       { label: "Hoteles", href: "/hoteles" },
     ],
