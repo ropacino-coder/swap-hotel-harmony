@@ -5,9 +5,11 @@ import logo from "@/assets/logo.png";
 
 const navItems = [
   { label: "Pool de Swaps", href: "#pool" },
-  { label: "Cómo Funciona", href: "#how" },
+  { label: "Onboarding", href: "#onboarding" },
+  { label: "Flujo", href: "#flow" },
+  { label: "Tarifas", href: "#pricing" },
+  { label: "Calculadora", href: "#calculator" },
   { label: "Blockchain", href: "#blockchain" },
-  { label: "Únete", href: "#join" },
 ];
 
 const Navbar = () => {
