@@ -155,6 +155,46 @@ const ExchangeFlowSection = () => {
             })}
           </div>
         </div>
+
+        {/* Pool de Swaps */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="text-center mt-16 mb-8"
+        >
+          <span className="text-sm font-semibold text-primary uppercase tracking-widest">
+            Pool de Swaps
+          </span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mt-3 mb-4 text-balance">
+            El corazón de <span className="gold-text">Swap Hotels</span>
+          </h2>
+          <p className="text-muted-foreground max-w-xl mx-auto text-balance">
+            Un pool centralizado donde las noches de hotel se convierten en unidades de intercambio líquidas y verificables.
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {poolFeatures.map((feature, i) => (
+            <motion.div
+              key={feature.title}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.4 + i * 0.15 }}
+              className="glass-card-hover p-8"
+            >
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
+                <feature.icon className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="text-xl font-display font-semibold mb-2">
+                {feature.title}
+              </h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                {feature.description}
+              </p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
