@@ -2,7 +2,31 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import {
   Search, Calculator, Send, CheckCircle, CreditCard, LogOut,
+  ArrowLeftRight, Clock, Shield, Layers,
 } from "lucide-react";
+
+const poolFeatures = [
+  {
+    icon: ArrowLeftRight,
+    title: "Intercambio Directo",
+    description: "Deposita noches de hotel en el Pool y recibe Swap Units (SU) para canjear en cualquier hotel de la red.",
+  },
+  {
+    icon: Clock,
+    title: "FIFO a 12 Meses",
+    description: "Tus SU vencen a los 12 meses bajo el sistema First In, First Out. Usa primero las más antiguas.",
+  },
+  {
+    icon: Shield,
+    title: "Trazabilidad Total",
+    description: "Cada transacción queda registrada de forma inalterable. Transparencia total en el manejo del Pool de Swaps.",
+  },
+  {
+    icon: Layers,
+    title: "Temporada Media y Baja",
+    description: "Maximiza la ocupación en las temporadas más difíciles intercambiando noches que de otro modo quedarían vacías.",
+  },
+];
 
 const steps = [
   {
