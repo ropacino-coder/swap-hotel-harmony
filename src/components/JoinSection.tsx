@@ -26,45 +26,68 @@ const JoinSection = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, y: 40, scale: 0.95 }}
+          animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           className="glass-card p-8 md:p-12 max-w-3xl mx-auto text-center relative overflow-hidden"
         >
-          {/* Glow effect */}
-          <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-60 h-60 bg-primary/10 rounded-full blur-[80px]" />
+          {/* Animated glow */}
+          <motion.div
+            className="absolute -top-20 left-1/2 -translate-x-1/2 w-60 h-60 bg-primary/10 rounded-full blur-[80px]"
+            animate={{ scale: [1, 1.3, 1], opacity: [0.1, 0.2, 0.1] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          />
 
           <div className="relative z-10">
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 text-balance">
+            <motion.h2
+              initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
+              animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              className="text-3xl md:text-4xl font-display font-bold mb-4 text-balance"
+            >
               Sé parte del futuro del{" "}
               <span className="gold-text">intercambio hotelero</span>
-            </h2>
-            <p className="text-muted-foreground mb-8 max-w-md mx-auto text-balance">
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.35, duration: 0.6 }}
+              className="text-muted-foreground mb-8 max-w-md mx-auto text-balance"
+            >
               Únete a la lista de espera y sé de los primeros en acceder a la
               plataforma.
-            </p>
+            </motion.p>
 
             <ul className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 mb-6">
-              {benefits.map((b) => (
-                <li
+              {benefits.map((b, i) => (
+                <motion.li
                   key={b}
+                  initial={{ opacity: 0, x: -15 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ delay: 0.4 + i * 0.1, duration: 0.5 }}
                   className="flex items-center gap-2 text-sm text-secondary-foreground"
                 >
                   <Check className="w-4 h-4 text-primary flex-shrink-0" />
                   {b}
-                </li>
+                </motion.li>
               ))}
             </ul>
 
             {submitted ? (
               <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
+                transition={{ type: "spring", stiffness: 200 }}
                 className="py-4"
               >
-                <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ type: "spring", stiffness: 300, delay: 0.1 }}
+                  className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4"
+                >
                   <Check className="w-8 h-8 text-primary" />
-                </div>
+                </motion.div>
                 <p className="font-display font-semibold text-lg">
                   ¡Estás en la lista!
                 </p>
@@ -73,8 +96,11 @@ const JoinSection = () => {
                 </p>
               </motion.div>
             ) : (
-              <form
+              <motion.form
                 onSubmit={handleSubmit}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.6, duration: 0.6 }}
                 className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
               >
                 <input
@@ -85,14 +111,16 @@ const JoinSection = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   className="flex-1 px-5 py-3.5 rounded-full bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
                 />
-                <button
+                <motion.button
                   type="submit"
-                  className="group flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold hover:bg-gold-light transition-all duration-300"
+                  whileHover={{ scale: 1.04, boxShadow: "0 6px 24px hsla(35, 75%, 42%, 0.25)" }}
+                  whileTap={{ scale: 0.96 }}
+                  className="group flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold transition-all duration-300"
                 >
                   Unirme
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </button>
-              </form>
+                </motion.button>
+              </motion.form>
             )}
           </div>
         </motion.div>
