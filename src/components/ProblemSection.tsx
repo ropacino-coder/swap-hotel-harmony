@@ -20,12 +20,12 @@ const ProblemSection = () => {
   const bgOpacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0.5]);
 
   return (
-    <section className="py-14 relative" ref={ref}>
+    <section className="py-8 relative" ref={ref}>
       <motion.div className="absolute inset-0 bg-muted/40" style={{ opacity: bgOpacity }} />
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.div className="max-w-4xl mx-auto">
-          <div className="text-center mb-8">
+          <div className="text-center mb-5">
             <motion.span
               initial={{ opacity: 0, y: 10 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}

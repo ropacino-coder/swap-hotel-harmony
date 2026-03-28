@@ -34,9 +34,9 @@ const HowItWorksSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="how" className="py-14 relative" ref={ref}>
+    <section id="how" className="py-8 relative" ref={ref}>
       <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-10 items-center">
+        <div className="grid lg:grid-cols-2 gap-6 items-center">
           {/* Image side */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}

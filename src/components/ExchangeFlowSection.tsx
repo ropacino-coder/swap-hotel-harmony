@@ -60,13 +60,13 @@ const ExchangeFlowSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="flow" className="py-14 relative" ref={ref}>
+    <section id="flow" className="py-8 relative" ref={ref}>
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-8"
+          className="text-center mb-5"
         >
           <span className="text-sm font-semibold text-primary uppercase tracking-widest">
             Flujo Completo

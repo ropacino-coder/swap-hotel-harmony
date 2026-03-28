@@ -31,7 +31,7 @@ const PricingSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="pricing" className="py-14 relative" ref={ref}>
+    <section id="pricing" className="py-8 relative" ref={ref}>
       <div className="absolute inset-0 bg-muted/30" />
 
       <div className="container mx-auto px-6 relative z-10">
@@ -39,7 +39,7 @@ const PricingSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-8"
+          className="text-center mb-5"
         >
           <span className="text-sm font-semibold text-primary uppercase tracking-widest">
             Tarifas y Valores
@@ -103,7 +103,7 @@ const PricingSection = () => {
             <p className="text-xs text-muted-foreground mb-6">
               Multiplicador sobre el valor base
             </p>
-            <div className="space-y-3 mb-8">
+            <div className="space-y-3 mb-5">
               {roomTypes.map((room) => (
                 <div
                   key={room.type}

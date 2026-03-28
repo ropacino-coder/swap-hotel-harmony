@@ -46,7 +46,7 @@ const SUCalculator = () => {
     "w-full px-4 py-3 rounded-xl bg-secondary border border-border text-foreground appearance-none focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all cursor-pointer";
 
   return (
-    <section id="calculator" className="py-14 relative" ref={ref}>
+    <section id="calculator" className="py-8 relative" ref={ref}>
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -72,7 +72,7 @@ const SUCalculator = () => {
           transition={{ delay: 0.3, duration: 0.8 }}
           className="glass-card p-8 md:p-10 max-w-2xl mx-auto"
         >
-          <div className="grid sm:grid-cols-2 gap-5 mb-8">
+          <div className="grid sm:grid-cols-2 gap-5 mb-5">
             {/* Category */}
             <div>
               <label className="block text-sm font-medium text-muted-foreground mb-2">
