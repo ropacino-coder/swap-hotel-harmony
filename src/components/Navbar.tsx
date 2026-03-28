@@ -4,12 +4,11 @@ import { Menu, X } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const navItems = [
+  { label: "Hoteles", href: "#hotels" },
   { label: "Pool de Swaps", href: "#pool" },
-  { label: "Onboarding", href: "#onboarding" },
-  { label: "Flujo", href: "#flow" },
+  { label: "Cómo Funciona", href: "#flow" },
   { label: "Tarifas", href: "#pricing" },
   { label: "Calculadora", href: "#calculator" },
-  { label: "Tecnología", href: "#technology" },
 ];
 
 const Navbar = () => {
@@ -20,7 +19,7 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 glass-card border-t-0 rounded-t-none border-x-0"
+      className="fixed top-0 left-0 right-0 z-50 bg-card/90 backdrop-blur-lg border-b border-border"
     >
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         <a href="#" className="flex items-center gap-3">
@@ -40,6 +39,12 @@ const Navbar = () => {
               {item.label}
             </a>
           ))}
+          <a
+            href="/login"
+            className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-300"
+          >
+            Iniciar sesión
+          </a>
           <a
             href="/register"
             className="px-5 py-2.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:bg-gold-light transition-colors duration-300"
@@ -62,7 +67,7 @@ const Navbar = () => {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="md:hidden overflow-hidden border-t border-border"
+            className="md:hidden overflow-hidden border-t border-border bg-card"
           >
             <div className="px-6 py-4 flex flex-col gap-4">
               {navItems.map((item) => (
@@ -75,6 +80,13 @@ const Navbar = () => {
                   {item.label}
                 </a>
               ))}
+              <a
+                href="/login"
+                onClick={() => setIsOpen(false)}
+                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              >
+                Iniciar sesión
+              </a>
               <a
                 href="/register"
                 onClick={() => setIsOpen(false)}

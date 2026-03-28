@@ -32,7 +32,7 @@ const TechnologySection = () => {
   return (
     <section id="technology" className="py-24 relative overflow-hidden" ref={ref}>
       {/* Animated background orb */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[120px] animate-pulse-slow" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/3 blur-[120px]" />
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
