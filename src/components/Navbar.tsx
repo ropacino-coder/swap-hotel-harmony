@@ -8,8 +8,7 @@ const navItems = [
   { label: "Hoteles", href: "#hotels" },
   { label: "Pool de Swaps", href: "#pool" },
   { label: "Cómo Funciona", href: "#flow" },
-  { label: "Tarifas", href: "#pricing" },
-  { label: "Calculadora", href: "#calculator" },
+  { label: "Membresías", href: "#pricing" },
 ];
 
 const Navbar = () => {
