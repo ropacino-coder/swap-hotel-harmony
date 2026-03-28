@@ -9,7 +9,7 @@ import PoolSection from "@/components/PoolSection";
 import OnboardingSection from "@/components/OnboardingSection";
 import ExchangeFlowSection from "@/components/ExchangeFlowSection";
 import PricingSection from "@/components/PricingSection";
-import ValuesSection from "@/components/ValuesSection";
+
 import HospitalityCodeSection from "@/components/HospitalityCodeSection";
 
 import TechnologySection from "@/components/TechnologySection";
@@ -34,7 +34,7 @@ const Index = () => {
       <OnboardingSection />
       <ExchangeFlowSection />
       <PricingSection />
-      <ValuesSection />
+      
       <HospitalityCodeSection />
       
       <TechnologySection />
