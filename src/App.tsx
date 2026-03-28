@@ -8,6 +8,8 @@ import AIChatWidget from "@/components/AIChatWidget";
 import Index from "./pages/Index.tsx";
 import Register from "./pages/Register.tsx";
 import Login from "./pages/Login.tsx";
+import ForgotPassword from "./pages/ForgotPassword.tsx";
+import ResetPassword from "./pages/ResetPassword.tsx";
 import HotelDetail from "./pages/HotelDetail.tsx";
 import HotelUpload from "./pages/HotelUpload.tsx";
 import Hoteles from "./pages/Hoteles.tsx";
@@ -39,6 +41,8 @@ const App = () => (
             <Route path="/valores" element={<Values />} />
             <Route path="/membresias" element={<Pricing />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
