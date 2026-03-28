@@ -19,7 +19,7 @@ const steps = [
     number: "03",
     title: "Intercambia",
     description:
-      "Usa tus SU para reservar noches en cualquier hotel de la red. La blockchain valida todo.",
+      "Usa tus SU para reservar noches en cualquier hotel de la red. El sistema lo verifica todo.",
   },
   {
     number: "04",
