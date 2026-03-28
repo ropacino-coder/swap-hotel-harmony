@@ -34,7 +34,7 @@ const Login = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <div className="container mx-auto px-6 pt-28 pb-20 flex items-center justify-center min-h-[80vh]">
+      <div className="container mx-auto px-4 sm:px-6 pt-20 sm:pt-28 pb-12 sm:pb-20 flex items-center justify-center min-h-[80vh]">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -49,7 +49,7 @@ const Login = () => {
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="glass-card p-8 space-y-5">
+          <form onSubmit={handleSubmit} className="glass-card p-5 sm:p-8 space-y-5">
             <div className="relative">
               <Mail className="absolute left-3.5 top-3.5 w-4 h-4 text-muted-foreground" />
               <input

@@ -105,13 +105,13 @@ const Register = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <div className="container mx-auto px-6 pt-28 pb-20">
+      <div className="container mx-auto px-4 sm:px-6 pt-20 sm:pt-28 pb-12 sm:pb-20">
         <div className="max-w-xl mx-auto">
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-10"
+            className="text-center mb-6 sm:mb-10"
           >
             <h1 className="text-3xl md:text-4xl font-display font-bold mb-3">
               Registrate en <span className="gold-text">Swap Hotels</span>
@@ -122,7 +122,7 @@ const Register = () => {
           </motion.div>
 
           {/* Step indicator */}
-          <div className="flex items-center justify-between mb-10 max-w-md mx-auto">
+          <div className="flex items-center justify-between mb-6 sm:mb-10 max-w-md mx-auto">
             {stepLabels.map((label, i) => (
               <div key={label} className="flex items-center">
                 <div className="flex flex-col items-center">
