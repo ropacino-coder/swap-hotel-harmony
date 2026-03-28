@@ -5,7 +5,7 @@ import IdeaSection from "@/components/IdeaSection";
 import DescriptionSection from "@/components/DescriptionSection";
 import CoverageMapSection from "@/components/CoverageMapSection";
 import HotelListingSection from "@/components/HotelListingSection";
-import PoolSection from "@/components/PoolSection";
+
 import OnboardingSection from "@/components/OnboardingSection";
 import ExchangeFlowSection from "@/components/ExchangeFlowSection";
 
@@ -30,7 +30,7 @@ const Index = () => {
       <DescriptionSection />
       <CoverageMapSection />
       <HotelListingSection />
-      <PoolSection />
+      
       <OnboardingSection />
       <ExchangeFlowSection />
       
