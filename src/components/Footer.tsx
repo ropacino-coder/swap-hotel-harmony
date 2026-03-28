@@ -14,7 +14,7 @@ const footerSections = [
   {
     title: "Confianza",
     links: [
-      { label: "Garantías", href: "#guarantees" },
+      { label: "Garantías", href: "/garantias" },
       { label: "Código de Hospitalidad", href: "#hospitality" },
       { label: "Nuestros Valores", href: "#values" },
       { label: "Tecnología", href: "#technology" },
@@ -24,7 +24,7 @@ const footerSections = [
     title: "Información",
     links: [
       { label: "Preguntas Frecuentes", href: "/faq" },
-      { label: "Consejos para Swappers", href: "#tips" },
+      { label: "Consejos para Swappers", href: "/consejos" },
       { label: "Economía del Sistema", href: "#economy" },
       { label: "Beneficios", href: "#benefits" },
     ],
