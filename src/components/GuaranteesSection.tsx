@@ -80,7 +80,7 @@ const GuaranteesSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.1 * i, duration: 0.5 }}
-              className="glass-card-hover p-7 group relative overflow-hidden"
+              className="glass-card-hover p-5 sm:p-7 group relative overflow-hidden"
             >
               <span className="absolute top-4 right-5 text-4xl font-display font-bold text-border/60 group-hover:text-primary/15 transition-colors">
                 {g.number}

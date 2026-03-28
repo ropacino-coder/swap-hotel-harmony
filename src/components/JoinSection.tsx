@@ -29,7 +29,7 @@ const JoinSection = () => {
           initial={{ opacity: 0, y: 40, scale: 0.95 }}
           animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="glass-card p-8 md:p-12 max-w-3xl mx-auto text-center relative overflow-hidden"
+          className="glass-card p-5 sm:p-8 md:p-12 max-w-3xl mx-auto text-center relative overflow-hidden"
         >
           {/* Animated glow */}
           <motion.div
@@ -43,7 +43,7 @@ const JoinSection = () => {
               initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
               animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="text-3xl md:text-4xl font-display font-bold mb-4 text-balance"
+              className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-4 text-balance"
             >
               Sé parte del futuro del{" "}
               <span className="gold-text">intercambio hotelero</span>

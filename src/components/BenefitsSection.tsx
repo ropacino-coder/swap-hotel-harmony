@@ -70,7 +70,7 @@ const BenefitsSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.1 * i, duration: 0.5 }}
-              className="glass-card-hover p-7 group"
+              className="glass-card-hover p-5 sm:p-7 group"
             >
               <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
                 <b.icon className="w-6 h-6 text-primary" />

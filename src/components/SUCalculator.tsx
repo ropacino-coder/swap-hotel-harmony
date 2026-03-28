@@ -70,7 +70,7 @@ const SUCalculator = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.3, duration: 0.8 }}
-          className="glass-card p-8 md:p-10 max-w-2xl mx-auto"
+          className="glass-card p-5 sm:p-8 md:p-10 max-w-2xl mx-auto"
         >
           <div className="grid sm:grid-cols-2 gap-5 mb-5">
             {/* Category */}
@@ -162,7 +162,7 @@ const SUCalculator = () => {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.3, type: "spring" }}
-              className="text-5xl md:text-6xl font-display font-bold gold-text"
+              className="text-4xl sm:text-5xl md:text-6xl font-display font-bold gold-text"
             >
               {result.toLocaleString("es-AR")}
             </motion.div>

@@ -64,7 +64,7 @@ const HospitalityCodeSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.3 + i * 0.15, duration: 0.5 }}
-              className="glass-card p-8 relative group hover:shadow-[var(--shadow-card-hover)] transition-all duration-500"
+              className="glass-card p-5 sm:p-8 relative group hover:shadow-[var(--shadow-card-hover)] transition-all duration-500"
             >
               <span className="absolute top-5 right-6 text-5xl font-display font-bold text-border/50 group-hover:text-primary/15 transition-colors">
                 {p.number}
