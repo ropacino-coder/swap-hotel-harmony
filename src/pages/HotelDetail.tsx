@@ -20,6 +20,10 @@ const HotelDetail = () => {
   const [lightbox, setLightbox] = useState(false);
   const [saved, setSaved] = useState(false);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
+
   if (!hotel) {
     return (
       <div className="min-h-screen bg-background">
