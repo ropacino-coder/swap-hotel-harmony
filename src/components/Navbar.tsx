@@ -15,13 +15,17 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
-    if (location.pathname !== "/") {
-      navigate("/" + href);
+    if (href.startsWith("#")) {
+      if (location.pathname !== "/") {
+        navigate("/" + href);
+      } else {
+        const el = document.querySelector(href);
+        el?.scrollIntoView({ behavior: "smooth" });
+      }
     } else {
-      const el = document.querySelector(href.replace("/", ""));
-      el?.scrollIntoView({ behavior: "smooth" });
+      navigate(href);
     }
     setIsOpen(false);
   };
