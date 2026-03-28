@@ -12,6 +12,8 @@ import HotelDetail from "./pages/HotelDetail.tsx";
 import HotelUpload from "./pages/HotelUpload.tsx";
 import Hoteles from "./pages/Hoteles.tsx";
 import FAQ from "./pages/FAQ.tsx";
+import Tips from "./pages/Tips.tsx";
+import Guarantees from "./pages/Guarantees.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();

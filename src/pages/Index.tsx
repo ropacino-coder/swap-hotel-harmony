@@ -11,11 +11,11 @@ import ExchangeFlowSection from "@/components/ExchangeFlowSection";
 import PricingSection from "@/components/PricingSection";
 import ValuesSection from "@/components/ValuesSection";
 import HospitalityCodeSection from "@/components/HospitalityCodeSection";
-import GuaranteesSection from "@/components/GuaranteesSection";
+
 import TechnologySection from "@/components/TechnologySection";
 import EconomySection from "@/components/EconomySection";
 import BenefitsSection from "@/components/BenefitsSection";
-import TipsSection from "@/components/TipsSection";
+
 import FAQSection from "@/components/FAQSection";
 import JoinSection from "@/components/JoinSection";
 import Footer from "@/components/Footer";
@@ -36,11 +36,11 @@ const Index = () => {
       <PricingSection />
       <ValuesSection />
       <HospitalityCodeSection />
-      <GuaranteesSection />
+      
       <TechnologySection />
       <EconomySection />
       <BenefitsSection />
-      <TipsSection />
+      
       <JoinSection />
       <Footer />
     </div>
