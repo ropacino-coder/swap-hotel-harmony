@@ -5,7 +5,7 @@ import { ArrowRight, Check } from "lucide-react";
 const benefits = [
   "Acceso al Pool de Swaps global",
   "Panel de control con tus SU en tiempo real",
-  "Verificación blockchain de cada transacción",
+  "Trazabilidad total de cada transacción",
   "Sin comisiones ocultas ni intermediarios",
 ];
 
