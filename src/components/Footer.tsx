@@ -7,7 +7,7 @@ const footerSections = [
     links: [
       { label: "Cómo Funciona", href: "#flow" },
       { label: "Pool de Swaps", href: "#pool" },
-      { label: "Membresías & Tarifas", href: "#pricing" },
+      { label: "Membresías & Tarifas", href: "/membresias" },
       { label: "Hoteles", href: "/hoteles" },
     ],
   },
