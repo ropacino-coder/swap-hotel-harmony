@@ -14,7 +14,7 @@ const footerSections = [
   {
     title: "Confianza",
     links: [
-      { label: "Garantías", href: "/garantias" },
+      { label: "Nuestras Garantías", href: "/garantias" },
       { label: "Código de Hospitalidad", href: "#hospitality" },
       { label: "Nuestros Valores", href: "#values" },
       { label: "Tecnología", href: "#technology" },
