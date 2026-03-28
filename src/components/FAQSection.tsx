@@ -75,16 +75,24 @@ const faqCategories = [
         a: "Después de la confirmación operativa del hotel. Nunca antes.",
       },
       {
-        q: "¿Qué pasa si cancelo yo?",
-        a: "Depende del plazo: con suficiente anticipación, las SU retenidas vuelven a tu cuenta. En cancelaciones tardías o críticas, podés perder total o parcialmente las SU según la política vigente.",
+        q: "¿Qué pasa si cancelo yo como huésped?",
+        a: "Depende del plazo: +14 días recuperás 100% de SU sin penalización. Entre 14 y 7 días recuperás 100% con registro interno. Entre 7 días y 24 hs perdés 30% de SU (se acreditan al hotel). Con menos de 24 hs o no-show, perdés 100% de las SU. La tarifa de servicio no se devuelve.",
       },
       {
         q: "¿Qué pasa si cancela el hotel?",
-        a: "Se devuelven las SU retenidas y la tarifa de servicio en todos los casos. En cancelaciones críticas se acredita compensación adicional y se activa asistencia de reubicación.",
+        a: "Se devuelven las SU retenidas y la tarifa de servicio en todos los casos. En cancelaciones críticas (−48 hs) se aplica multa de 30% de SU al hotel y se acredita compensación al huésped.",
       },
       {
         q: "¿Puede alojarse un familiar o empleado?",
         a: "Sí. Al momento de la reserva se indica quién va a alojarse. Puede ser cualquier persona que el titular autorice para esa estadía.",
+      },
+      {
+        q: "¿Qué sanciones existen por incumplimientos?",
+        a: "El sistema es progresivo: 1er incumplimiento = aviso formal. 2do incumplimiento = inhabilitación temporal + tarifa administrativa de USD 50. 3er evento en 12 meses = posible suspensión. Todo queda registrado para trazabilidad y respaldo legal.",
+      },
+      {
+        q: "¿Dónde puedo ver la política completa de cancelaciones?",
+        a: "Podés consultar todos los detalles en nuestra sección dedicada de Cancelaciones & Sanciones, accesible desde el menú de la plataforma.",
       },
     ],
   },
