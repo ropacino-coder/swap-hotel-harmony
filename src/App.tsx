@@ -15,6 +15,7 @@ import FAQ from "./pages/FAQ.tsx";
 import Tips from "./pages/Tips.tsx";
 import Guarantees from "./pages/Guarantees.tsx";
 import Values from "./pages/Values.tsx";
+import Pricing from "./pages/Pricing.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -36,6 +37,7 @@ const App = () => (
             <Route path="/consejos" element={<Tips />} />
             <Route path="/garantias" element={<Guarantees />} />
             <Route path="/valores" element={<Values />} />
+            <Route path="/membresias" element={<Pricing />} />
             <Route path="/login" element={<Login />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
