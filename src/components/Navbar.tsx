@@ -15,13 +15,17 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
-    if (location.pathname !== "/") {
-      navigate("/" + href);
+    if (href.startsWith("#")) {
+      if (location.pathname !== "/") {
+        navigate("/" + href);
+      } else {
+        const el = document.querySelector(href);
+        el?.scrollIntoView({ behavior: "smooth" });
+      }
     } else {
-      const el = document.querySelector(href.replace("/", ""));
-      el?.scrollIntoView({ behavior: "smooth" });
+      navigate(href);
     }
     setIsOpen(false);
   };
@@ -55,7 +59,7 @@ const Navbar = () => {
             <a
               key={item.label}
               href={item.href}
-              onClick={(e) => handleAnchorClick(e, item.href)}
+              onClick={(e) => handleNavClick(e, item.href)}
               className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-300"
             >
               {item.label}
@@ -96,7 +100,7 @@ const Navbar = () => {
                 <a
                   key={item.label}
                   href={item.href}
-                  onClick={(e) => handleAnchorClick(e, item.href)}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
                 >
                   {item.label}
