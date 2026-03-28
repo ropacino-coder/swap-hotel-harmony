@@ -270,6 +270,22 @@ const HotelDetail = () => {
                 ))}
               </div>
             </motion.div>
+
+            {/* Map */}
+            <HotelMapSection
+              name={hotel.name}
+              location={hotel.location}
+              lat={hotel.lat}
+              lng={hotel.lng}
+            />
+
+            {/* AI Tourism */}
+            <HotelTourismAI
+              hotelName={hotel.name}
+              location={hotel.location}
+              environment={hotel.environment}
+              country={hotel.country}
+            />
           </div>
 
           {/* Right: SU Calculator sticky */}
