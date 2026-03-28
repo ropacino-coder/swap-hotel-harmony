@@ -337,7 +337,7 @@ const CoverageMapSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 items-center max-w-5xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-5 items-center max-w-5xl mx-auto">
           {/* Map */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}

@@ -38,7 +38,7 @@ const DescriptionSection = () => {
   return (
     <section id="about" className="py-8 relative" ref={ref}>
       <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-10 items-center max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-6 items-center max-w-6xl mx-auto">
           {/* Left — narrative with parallax */}
           <motion.div style={{ x: textX }}>
             <motion.div
