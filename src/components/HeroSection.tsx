@@ -1,12 +1,24 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { useRef } from "react";
 import heroBg from "@/assets/hero-light.jpg";
 
 const HeroSection = () => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "60%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
+
   return (
-    <section className="relative min-h-[70vh] flex items-center overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0">
+    <section ref={ref} className="relative min-h-[70vh] flex items-center overflow-hidden">
+      {/* Parallax Background */}
+      <motion.div className="absolute inset-0" style={{ y: bgY, scale }}>
         <img
           src={heroBg}
           alt=""
@@ -15,45 +27,85 @@ const HeroSection = () => {
           height={1080}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-card/95 via-card/80 to-card/40" />
+      </motion.div>
+
+      {/* Floating particles */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(5)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-1 h-1 rounded-full bg-primary/20"
+            style={{
+              left: `${15 + i * 18}%`,
+              top: `${20 + i * 12}%`,
+            }}
+            animate={{
+              y: [0, -30, 0],
+              opacity: [0.2, 0.6, 0.2],
+            }}
+            transition={{
+              duration: 4 + i,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: i * 0.8,
+            }}
+          />
+        ))}
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 pt-28 pb-16">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="max-w-2xl"
-        >
+      {/* Content with parallax */}
+      <motion.div
+        className="relative z-10 container mx-auto px-6 pt-28 pb-16"
+        style={{ y: textY, opacity }}
+      >
+        <motion.div className="max-w-2xl">
           {/* Badge */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
+            initial={{ opacity: 0, scale: 0.8, filter: "blur(10px)" }}
+            animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+            transition={{ delay: 0.3, duration: 0.8 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/5 mb-8"
           >
-            <span className="w-2 h-2 rounded-full bg-primary" />
+            <motion.span
+              className="w-2 h-2 rounded-full bg-primary"
+              animate={{ scale: [1, 1.4, 1], opacity: [1, 0.6, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            />
             <span className="text-sm font-medium text-primary">
               Hotelería Colaborativa
             </span>
           </motion.div>
 
-          {/* Heading */}
+          {/* Heading with stagger */}
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
             className="text-4xl sm:text-5xl md:text-6xl font-display font-800 leading-[1.08] mb-6 text-balance"
           >
-            Intercambiá noches.{" "}
-            <span className="gold-text">Multiplicá destinos.</span>
+            <motion.span
+              className="inline-block"
+              initial={{ opacity: 0, y: 40, rotateX: -40 }}
+              animate={{ opacity: 1, y: 0, rotateX: 0 }}
+              transition={{ delay: 0.5, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            >
+              Intercambiá noches.{" "}
+            </motion.span>
+            <motion.span
+              className="gold-text inline-block"
+              initial={{ opacity: 0, y: 40, rotateX: -40 }}
+              animate={{ opacity: 1, y: 0, rotateX: 0 }}
+              transition={{ delay: 0.7, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            >
+              Multiplicá destinos.
+            </motion.span>
           </motion.h1>
 
           {/* Subtitle */}
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.8 }}
+            initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ delay: 0.9, duration: 0.8 }}
             className="text-lg text-muted-foreground max-w-lg mb-10 text-balance"
           >
             La primera plataforma donde hoteleros de Argentina, Uruguay,
@@ -66,32 +118,31 @@ const HeroSection = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9, duration: 0.8 }}
+            transition={{ delay: 1.1, duration: 0.8 }}
             className="flex flex-col sm:flex-row items-start gap-4"
           >
-            <a
+            <motion.a
               href="/register"
-              className="group flex items-center gap-2 px-8 py-4 rounded-full bg-primary text-primary-foreground font-semibold text-lg hover:bg-gold-light transition-all duration-300 gold-glow"
+              whileHover={{ scale: 1.04, boxShadow: "0 8px 30px hsla(35, 75%, 42%, 0.3)" }}
+              whileTap={{ scale: 0.97 }}
+              className="group flex items-center gap-2 px-8 py-4 rounded-full bg-primary text-primary-foreground font-semibold text-lg transition-all duration-300 gold-glow"
             >
               Sumá tu hotel
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a
+            </motion.a>
+            <motion.a
               href="#hotels"
-              className="flex items-center gap-2 px-8 py-4 rounded-full border border-border text-foreground font-medium text-lg hover:border-primary/50 hover:text-primary transition-all duration-300"
+              whileHover={{ scale: 1.03, borderColor: "hsl(35, 75%, 42%)" }}
+              whileTap={{ scale: 0.97 }}
+              className="flex items-center gap-2 px-8 py-4 rounded-full border border-border text-foreground font-medium text-lg hover:text-primary transition-all duration-300"
             >
               Explorar hoteles
-            </a>
+            </motion.a>
           </motion.div>
         </motion.div>
 
-        {/* Floating stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2, duration: 1 }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl"
-        >
+        {/* Floating stats with stagger */}
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl">
           {[
             { value: "12", unit: "meses", label: "Vigencia SU (FIFO)" },
             { value: "4", unit: "países", label: "ARG · URU · CHI · PAR" },
@@ -100,10 +151,15 @@ const HeroSection = () => {
           ].map((stat, i) => (
             <motion.div
               key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.4 + i * 0.1, duration: 0.6 }}
-              className="glass-card p-4 text-center"
+              initial={{ opacity: 0, y: 30, scale: 0.9 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{
+                delay: 1.4 + i * 0.12,
+                duration: 0.7,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              whileHover={{ y: -4, boxShadow: "var(--shadow-card-hover)" }}
+              className="glass-card p-4 text-center transition-shadow"
             >
               <div className="text-2xl font-display font-bold text-primary">
                 {stat.value}
@@ -116,8 +172,8 @@ const HeroSection = () => {
               </div>
             </motion.div>
           ))}
-        </motion.div>
-      </div>
+        </div>
+      </motion.div>
     </section>
   );
 };
