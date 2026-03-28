@@ -85,8 +85,8 @@ const StepPersonal = ({ data, updateData, onNext, onPrev }: Props) => {
             }
             className={selectClass}
           >
-            <option value="DNI">DNI</option>
-            <option value="CI">CI</option>
+            <option value="DNI">DNI (ARG/PAR)</option>
+            <option value="CI">CI (URU/CHI)</option>
             <option value="Pasaporte">Pasaporte</option>
           </select>
         </div>
@@ -111,7 +111,7 @@ const StepPersonal = ({ data, updateData, onNext, onPrev }: Props) => {
 
       <div>
         <label className="block text-sm font-medium text-muted-foreground mb-2">
-          CUIT / RUT / ID Fiscal
+          CUIT / RUT / RUC / ID Fiscal
         </label>
         <div className="relative">
           <CreditCard className="absolute left-3.5 top-3.5 w-4 h-4 text-muted-foreground" />

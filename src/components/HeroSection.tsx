@@ -59,8 +59,9 @@ const HeroSection = () => {
             transition={{ delay: 0.7, duration: 0.8 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 text-balance"
           >
-            La primera plataforma donde hoteleros intercambian alojamiento
-            en temporada media y baja a través de{" "}
+            La primera plataforma donde hoteleros de Argentina, Uruguay,
+            Chile y Paraguay intercambian alojamiento en temporada media y baja
+            a través de{" "}
             <span className="text-primary font-semibold">Swap Units (SU)</span>,{" "}
             un sistema de unidades de intercambio verificables.
           </motion.p>
@@ -97,9 +98,9 @@ const HeroSection = () => {
         >
           {[
             { value: "12", unit: "meses", label: "Vigencia SU (FIFO)" },
-            { value: "0%", unit: "", label: "Comisiones ocultas" },
+            { value: "4", unit: "países", label: "ARG · URU · CHI · PAR" },
             { value: "24/7", unit: "", label: "Pool activo" },
-            { value: "∞", unit: "", label: "Destinos posibles" },
+            { value: "0%", unit: "", label: "Comisiones ocultas" },
           ].map((stat, i) => (
             <motion.div
               key={stat.label}
