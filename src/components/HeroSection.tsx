@@ -16,7 +16,7 @@ const HeroSection = () => {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
 
   return (
-    <section ref={ref} className="relative min-h-[70vh] flex items-center overflow-hidden">
+    <section ref={ref} className="relative min-h-[60vh] flex items-center overflow-hidden">
       {/* Parallax Background */}
       <motion.div className="absolute inset-0" style={{ y: bgY, scale }}>
         <img
