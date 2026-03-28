@@ -20,6 +20,7 @@ import Values from "./pages/Values.tsx";
 import Pricing from "./pages/Pricing.tsx";
 import ComoFunciona from "./pages/ComoFunciona.tsx";
 import Cancelaciones from "./pages/Cancelaciones.tsx";
+import SwapUnitsPage from "./pages/SwapUnits.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -44,6 +45,7 @@ const App = () => (
             <Route path="/membresias" element={<Pricing />} />
             <Route path="/como-funciona" element={<ComoFunciona />} />
             <Route path="/cancelaciones" element={<Cancelaciones />} />
+            <Route path="/swap-units" element={<SwapUnitsPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/reset-password" element={<ResetPassword />} />
