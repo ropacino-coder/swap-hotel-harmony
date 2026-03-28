@@ -6,7 +6,7 @@ import logo from "@/assets/logo.png";
 
 const navItems = [
   { label: "Hoteles", href: "/hoteles" },
-  { label: "Cómo Funciona", href: "#flow" },
+  { label: "Cómo Funciona", href: "/como-funciona" },
   { label: "Membresías", href: "/membresias" },
 ];
 

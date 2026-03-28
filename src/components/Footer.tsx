@@ -5,7 +5,7 @@ const footerSections = [
   {
     title: "Plataforma",
     links: [
-      { label: "Cómo Funciona", href: "#flow" },
+      { label: "Cómo Funciona", href: "/como-funciona" },
       { label: "Membresías & Tarifas", href: "/membresias" },
       { label: "Hoteles", href: "/hoteles" },
     ],

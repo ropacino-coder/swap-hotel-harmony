@@ -18,6 +18,7 @@ import Tips from "./pages/Tips.tsx";
 import Guarantees from "./pages/Guarantees.tsx";
 import Values from "./pages/Values.tsx";
 import Pricing from "./pages/Pricing.tsx";
+import ComoFunciona from "./pages/ComoFunciona.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -40,6 +41,7 @@ const App = () => (
             <Route path="/garantias" element={<Guarantees />} />
             <Route path="/valores" element={<Values />} />
             <Route path="/membresias" element={<Pricing />} />
+            <Route path="/como-funciona" element={<ComoFunciona />} />
             <Route path="/login" element={<Login />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/reset-password" element={<ResetPassword />} />
