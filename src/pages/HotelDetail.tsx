@@ -1,23 +1,15 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Star, MapPin, Users, Clock, ChevronLeft, ChevronRight, ArrowLeft,
-  Calculator, Check, X,
+  Check, X, Share2, Heart,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import HotelMapSection from "@/components/HotelMapSection";
 import HotelTourismAI from "@/components/HotelTourismAI";
 import { hotels, amenityIcons, categoryColors } from "@/data/hotels";
-
-const occupancies = [
-  { pax: 2, mult: 1.0 },
-  { pax: 3, mult: 1.4 },
-  { pax: 4, mult: 1.8 },
-  { pax: 6, mult: 2.5 },
-  { pax: 8, mult: 3.2 },
-];
 
 const HotelDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -26,16 +18,7 @@ const HotelDetail = () => {
 
   const [currentImage, setCurrentImage] = useState(0);
   const [lightbox, setLightbox] = useState(false);
-  const [roomIdx, setRoomIdx] = useState(0);
-  const [occIdx, setOccIdx] = useState(0);
-  const [nights, setNights] = useState(3);
-
-  const result = useMemo(() => {
-    if (!hotel) return 0;
-    const room = hotel.roomTypes[roomIdx]?.mult ?? 1;
-    const occ = occupancies[occIdx]?.mult ?? 1;
-    return Math.round(hotel.suPerNight * room * occ * nights * 10) / 10;
-  }, [hotel, roomIdx, occIdx, nights]);
+  const [saved, setSaved] = useState(false);
 
   if (!hotel) {
     return (
@@ -59,24 +42,51 @@ const HotelDetail = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <div className="container mx-auto px-4 sm:px-6 pt-20 sm:pt-24 pb-10">
-        {/* Back */}
-        <motion.button
-          initial={{ opacity: 0, x: -10 }}
-          animate={{ opacity: 1, x: 0 }}
-          onClick={() => navigate(-1)}
-          className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-4"
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-20 sm:pt-24 pb-10">
+        {/* Title row — Airbnb style */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mb-4"
         >
-          <ArrowLeft className="w-4 h-4" />
-          Volver
-        </motion.button>
+          <h1 className="text-xl sm:text-2xl font-display font-bold mb-1">{hotel.name}</h1>
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
+              <span className="flex items-center gap-1 font-medium text-foreground">
+                <Star className="w-4 h-4 fill-primary text-primary" />
+                {hotel.rating}
+              </span>
+              <span className="text-muted-foreground">·</span>
+              <span className="underline cursor-pointer">{hotel.reviews} reseñas</span>
+              <span className="text-muted-foreground">·</span>
+              <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${categoryColors[hotel.category]}`}>
+                {hotel.category} {"★".repeat(hotel.stars)}
+              </span>
+              <span className="text-muted-foreground">·</span>
+              <span className="flex items-center gap-1">
+                <MapPin className="w-3.5 h-3.5" /> {hotel.location}
+              </span>
+            </div>
+            <div className="flex items-center gap-3">
+              <button className="flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-primary transition-colors">
+                <Share2 className="w-4 h-4" /> Compartir
+              </button>
+              <button
+                onClick={() => setSaved(!saved)}
+                className="flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-primary transition-colors"
+              >
+                <Heart className={`w-4 h-4 ${saved ? "fill-primary text-primary" : ""}`} /> Guardar
+              </button>
+            </div>
+          </div>
+        </motion.div>
 
-        {/* Gallery */}
+        {/* Gallery — Airbnb grid */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="relative rounded-2xl overflow-hidden mb-6 cursor-pointer group"
+          transition={{ duration: 0.4 }}
+          className="relative rounded-2xl overflow-hidden mb-8 cursor-pointer group"
           onClick={() => setLightbox(true)}
         >
           <div className="aspect-[16/7] sm:aspect-[16/6]">
@@ -93,44 +103,35 @@ const HotelDetail = () => {
               />
             </AnimatePresence>
           </div>
-          {/* Nav arrows */}
           <button
             onClick={(e) => { e.stopPropagation(); prevImg(); }}
-            className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-card/80 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+            className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-md"
           >
-            <ChevronLeft className="w-5 h-5" />
+            <ChevronLeft className="w-4 h-4" />
           </button>
           <button
             onClick={(e) => { e.stopPropagation(); nextImg(); }}
-            className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-card/80 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+            className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-md"
           >
-            <ChevronRight className="w-5 h-5" />
+            <ChevronRight className="w-4 h-4" />
           </button>
-          {/* Dots */}
           <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
             {hotel.gallery.map((_, i) => (
               <button
                 key={i}
                 onClick={(e) => { e.stopPropagation(); setCurrentImage(i); }}
                 className={`w-2 h-2 rounded-full transition-all ${
-                  i === currentImage ? "bg-primary-foreground w-5" : "bg-primary-foreground/50"
+                  i === currentImage ? "bg-background w-5" : "bg-background/50"
                 }`}
               />
             ))}
           </div>
-          {/* Category badge */}
-          <div className="absolute top-3 left-3">
-            <span className={`text-xs font-bold px-3 py-1.5 rounded-full ${categoryColors[hotel.category]}`}>
-              {hotel.category} {"★".repeat(hotel.stars)}
-            </span>
-          </div>
-          {/* Thumbnails on desktop */}
           <div className="absolute bottom-3 right-3 hidden sm:flex gap-2">
             {hotel.gallery.map((img, i) => (
               <button
                 key={i}
                 onClick={(e) => { e.stopPropagation(); setCurrentImage(i); }}
-                className={`w-16 h-12 rounded-lg overflow-hidden border-2 transition-all ${
+                className={`w-14 h-10 rounded-lg overflow-hidden border-2 transition-all ${
                   i === currentImage ? "border-primary" : "border-transparent opacity-70 hover:opacity-100"
                 }`}
               >
@@ -141,80 +142,70 @@ const HotelDetail = () => {
         </motion.div>
 
         {/* Content grid */}
-        <div className="grid lg:grid-cols-3 gap-6">
-          {/* Left: info */}
-          <div className="lg:col-span-2 space-y-5">
-            {/* Header */}
+        <div className="grid lg:grid-cols-3 gap-8">
+          {/* Left: info — 2/3 */}
+          <div className="lg:col-span-2 space-y-6">
+            {/* Host-style header */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
+              className="pb-6 border-b border-border"
             >
-              <div className="flex items-start justify-between gap-4 mb-2">
-                <h1 className="text-2xl sm:text-3xl font-display font-bold">{hotel.name}</h1>
-                <div className="flex items-center gap-1 flex-shrink-0">
-                  <Star className="w-5 h-5 fill-primary text-primary" />
-                  <span className="font-bold text-lg">{hotel.rating}</span>
-                  <span className="text-sm text-muted-foreground">({hotel.reviews})</span>
+              <h2 className="text-lg sm:text-xl font-display font-semibold mb-1">
+                {hotel.environment} en {hotel.location.split(",")[0]}
+              </h2>
+              <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
+                <span>{hotel.capacity}</span>
+                <span>·</span>
+                <span>Check-in {hotel.checkIn}</span>
+                <span>·</span>
+                <span>Check-out {hotel.checkOut}</span>
+              </div>
+            </motion.div>
+
+            {/* Highlights — Airbnb style with icons */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.15 }}
+              className="pb-6 border-b border-border space-y-4"
+            >
+              {hotel.highlights.slice(0, 3).map((h) => (
+                <div key={h} className="flex items-start gap-4">
+                  <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="text-sm font-medium text-foreground">{h}</p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
-                <span className="flex items-center gap-1">
-                  <MapPin className="w-4 h-4" /> {hotel.location}
-                </span>
-                <span className="flex items-center gap-1">
-                  <Users className="w-4 h-4" /> {hotel.capacity}
-                </span>
-                <span className="flex items-center gap-1">
-                  <Clock className="w-4 h-4" /> Check-in {hotel.checkIn} · Check-out {hotel.checkOut}
-                </span>
-              </div>
+              ))}
             </motion.div>
 
             {/* Description */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="glass-card p-5 sm:p-6"
+              className="pb-6 border-b border-border"
             >
-              <h2 className="font-display font-semibold text-lg mb-2">Sobre el hotel</h2>
-              <p className="text-muted-foreground text-sm leading-relaxed">{hotel.description}</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">{hotel.description}</p>
             </motion.div>
 
-            {/* Highlights */}
+            {/* Amenities — Airbnb grid */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.25 }}
-              className="glass-card p-5 sm:p-6"
+              className="pb-6 border-b border-border"
             >
-              <h2 className="font-display font-semibold text-lg mb-3">Lo destacado</h2>
-              <div className="grid sm:grid-cols-2 gap-2">
-                {hotel.highlights.map((h) => (
-                  <div key={h} className="flex items-center gap-2 text-sm">
-                    <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                    <span className="text-muted-foreground">{h}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Amenities */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="glass-card p-5 sm:p-6"
-            >
-              <h2 className="font-display font-semibold text-lg mb-3">Servicios</h2>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              <h2 className="text-lg font-display font-semibold mb-4">Lo que este lugar ofrece</h2>
+              <div className="grid grid-cols-2 gap-3">
                 {hotel.amenities.map((a) => {
                   const Icon = amenityIcons[a] || Check;
                   return (
-                    <div key={a} className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <Icon className="w-4 h-4 text-primary" />
-                      {a}
+                    <div key={a} className="flex items-center gap-3 py-2">
+                      <Icon className="w-5 h-5 text-muted-foreground" />
+                      <span className="text-sm text-foreground">{a}</span>
                     </div>
                   );
                 })}
@@ -223,32 +214,26 @@ const HotelDetail = () => {
 
             {/* Room types */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.35 }}
-              className="glass-card p-5 sm:p-6"
+              transition={{ delay: 0.3 }}
+              className="pb-6 border-b border-border"
             >
-              <h2 className="font-display font-semibold text-lg mb-3">Habitaciones</h2>
-              <div className="space-y-3">
-                {hotel.roomTypes.map((r, i) => (
+              <h2 className="text-lg font-display font-semibold mb-4">Tipos de habitación</h2>
+              <div className="grid sm:grid-cols-2 gap-3">
+                {hotel.roomTypes.map((r) => (
                   <div
                     key={r.name}
-                    className={`p-4 rounded-xl border transition-all cursor-pointer ${
-                      roomIdx === i
-                        ? "border-primary bg-primary/5"
-                        : "border-border hover:border-primary/30"
-                    }`}
-                    onClick={() => setRoomIdx(i)}
+                    className="p-4 rounded-xl border border-border hover:border-primary/30 transition-all"
                   >
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <span className="font-semibold text-sm">{r.name}</span>
-                        <p className="text-xs text-muted-foreground mt-0.5">{r.description}</p>
-                      </div>
-                      <span className="text-sm font-medium text-primary">
-                        {Math.round(hotel.suPerNight * r.mult)} SU/noche
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="font-medium text-sm">{r.name}</span>
+                      <span className="text-sm font-semibold text-primary">
+                        {Math.round(hotel.suPerNight * r.mult)} SU
+                        <span className="font-normal text-muted-foreground text-xs"> /noche</span>
                       </span>
                     </div>
+                    <p className="text-xs text-muted-foreground">{r.description}</p>
                   </div>
                 ))}
               </div>
@@ -256,12 +241,12 @@ const HotelDetail = () => {
 
             {/* Seasons */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="glass-card p-5 sm:p-6"
+              transition={{ delay: 0.35 }}
+              className="pb-6 border-b border-border"
             >
-              <h2 className="font-display font-semibold text-lg mb-3">Temporadas disponibles</h2>
+              <h2 className="text-lg font-display font-semibold mb-3">Temporadas disponibles</h2>
               <div className="flex gap-2">
                 {hotel.seasons.map((s) => (
                   <span key={s} className="px-4 py-2 rounded-full bg-secondary text-sm font-medium text-foreground">
@@ -272,12 +257,15 @@ const HotelDetail = () => {
             </motion.div>
 
             {/* Map */}
-            <HotelMapSection
-              name={hotel.name}
-              location={hotel.location}
-              lat={hotel.lat}
-              lng={hotel.lng}
-            />
+            <div className="pb-6 border-b border-border">
+              <h2 className="text-lg font-display font-semibold mb-4">Dónde vas a estar</h2>
+              <HotelMapSection
+                name={hotel.name}
+                location={hotel.location}
+                lat={hotel.lat}
+                lng={hotel.lng}
+              />
+            </div>
 
             {/* AI Tourism */}
             <HotelTourismAI
@@ -288,111 +276,65 @@ const HotelDetail = () => {
             />
           </div>
 
-          {/* Right: SU Calculator sticky */}
+          {/* Right: Booking card — Airbnb style sticky */}
           <div className="lg:col-span-1">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="glass-card p-5 sm:p-6 lg:sticky lg:top-24"
+              transition={{ delay: 0.15 }}
+              className="rounded-xl border border-border shadow-lg p-6 lg:sticky lg:top-24 bg-card"
             >
-              <div className="flex items-center gap-2 mb-4">
-                <Calculator className="w-5 h-5 text-primary" />
-                <h3 className="font-display font-semibold text-lg">Calculá tus SU</h3>
+              {/* Price */}
+              <div className="flex items-baseline gap-1 mb-5">
+                <span className="text-2xl font-display font-bold gold-text">{hotel.suPerNight} SU</span>
+                <span className="text-sm text-muted-foreground">/ noche</span>
               </div>
 
-              {/* Base price */}
-              <div className="flex items-center justify-between mb-4 p-3 rounded-xl bg-primary/5 border border-primary/20">
-                <span className="text-sm text-muted-foreground">Base por noche</span>
-                <span className="font-bold text-primary text-lg">{hotel.suPerNight} SU</span>
+              {/* Rating row */}
+              <div className="flex items-center gap-1 mb-5">
+                <Star className="w-4 h-4 fill-primary text-primary" />
+                <span className="text-sm font-semibold">{hotel.rating}</span>
+                <span className="text-sm text-muted-foreground">· {hotel.reviews} reseñas</span>
               </div>
 
-              <div className="space-y-4 mb-5">
-                {/* Room type */}
-                <div>
-                  <label className="block text-sm font-medium text-muted-foreground mb-1.5">
-                    Habitación
-                  </label>
-                  <select
-                    value={roomIdx}
-                    onChange={(e) => setRoomIdx(Number(e.target.value))}
-                    className="w-full px-3 py-2.5 rounded-xl bg-secondary border border-border text-foreground text-sm appearance-none focus:outline-none focus:ring-2 focus:ring-primary/50"
-                  >
-                    {hotel.roomTypes.map((r, i) => (
-                      <option key={r.name} value={i}>
-                        {r.name} — {r.mult}x
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                {/* Occupancy */}
-                <div>
-                  <label className="block text-sm font-medium text-muted-foreground mb-1.5">
-                    Personas
-                  </label>
-                  <select
-                    value={occIdx}
-                    onChange={(e) => setOccIdx(Number(e.target.value))}
-                    className="w-full px-3 py-2.5 rounded-xl bg-secondary border border-border text-foreground text-sm appearance-none focus:outline-none focus:ring-2 focus:ring-primary/50"
-                  >
-                    {occupancies.map((o, i) => (
-                      <option key={o.pax} value={i}>
-                        {o.pax} personas — {o.mult}x
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                {/* Nights */}
-                <div>
-                  <label className="block text-sm font-medium text-muted-foreground mb-1.5">
-                    Noches
-                  </label>
-                  <div className="flex items-center gap-3">
-                    <button
-                      onClick={() => setNights(Math.max(1, nights - 1))}
-                      className="w-9 h-9 rounded-xl bg-secondary flex items-center justify-center text-lg font-bold hover:bg-primary/20 transition-colors"
-                    >
-                      −
-                    </button>
-                    <span className="flex-1 text-center text-xl font-display font-bold">{nights}</span>
-                    <button
-                      onClick={() => setNights(Math.min(30, nights + 1))}
-                      className="w-9 h-9 rounded-xl bg-secondary flex items-center justify-center text-lg font-bold hover:bg-primary/20 transition-colors"
-                    >
-                      +
-                    </button>
+              {/* Info rows */}
+              <div className="border border-border rounded-xl overflow-hidden mb-4">
+                <div className="grid grid-cols-2 divide-x divide-border">
+                  <div className="p-3">
+                    <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Check-in</p>
+                    <p className="text-sm font-medium mt-0.5">{hotel.checkIn}</p>
+                  </div>
+                  <div className="p-3">
+                    <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Check-out</p>
+                    <p className="text-sm font-medium mt-0.5">{hotel.checkOut}</p>
                   </div>
                 </div>
+                <div className="border-t border-border p-3">
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Capacidad</p>
+                  <p className="text-sm font-medium mt-0.5">{hotel.capacity}</p>
+                </div>
               </div>
 
-              {/* Result */}
-              <div className="p-5 rounded-2xl border border-primary/30 bg-primary/5 text-center mb-4">
-                <p className="text-xs text-muted-foreground mb-1">Swap Units necesarias</p>
-                <motion.div
-                  key={result}
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.3, type: "spring" }}
-                  className="text-3xl sm:text-4xl font-display font-bold gold-text"
-                >
-                  {result.toLocaleString("es-AR")}
-                </motion.div>
-                <p className="text-[10px] text-muted-foreground mt-1.5">
-                  {hotel.suPerNight} × {hotel.roomTypes[roomIdx].mult}x × {occupancies[occIdx].mult}x × {nights} noches
-                </p>
+              {/* Room types quick view */}
+              <div className="space-y-2 mb-5">
+                {hotel.roomTypes.map((r) => (
+                  <div key={r.name} className="flex items-center justify-between text-sm">
+                    <span className="text-muted-foreground">{r.name}</span>
+                    <span className="font-medium">{Math.round(hotel.suPerNight * r.mult)} SU/noche</span>
+                  </div>
+                ))}
               </div>
 
+              {/* CTA */}
               <a
                 href="/register"
-                className="block w-full py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-center hover:bg-gold-light transition-all duration-300 gold-glow text-sm"
+                className="block w-full py-3 rounded-lg bg-primary text-primary-foreground font-semibold text-center text-sm hover:opacity-90 transition-opacity gold-glow"
               >
                 Solicitar intercambio
               </a>
 
-              <p className="text-[10px] text-muted-foreground text-center mt-3">
-                Valor estimativo. Se confirma post-verificación.
+              <p className="text-xs text-muted-foreground text-center mt-3">
+                No se cobra dinero. Usás tus Swap Units.
               </p>
             </motion.div>
           </div>
