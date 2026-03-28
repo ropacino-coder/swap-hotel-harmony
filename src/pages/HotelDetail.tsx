@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Star, MapPin, Users, Clock, ChevronLeft, ChevronRight, ArrowLeft,
@@ -19,6 +19,10 @@ const HotelDetail = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [lightbox, setLightbox] = useState(false);
   const [saved, setSaved] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
 
   if (!hotel) {
     return (
