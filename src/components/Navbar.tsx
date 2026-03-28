@@ -9,7 +9,7 @@ const navItems = [
   { label: "Flujo", href: "#flow" },
   { label: "Tarifas", href: "#pricing" },
   { label: "Calculadora", href: "#calculator" },
-  { label: "Blockchain", href: "#blockchain" },
+  { label: "Tecnología", href: "#technology" },
 ];
 
 const Navbar = () => {

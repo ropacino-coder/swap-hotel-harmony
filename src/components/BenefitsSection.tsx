@@ -25,7 +25,7 @@ const benefits = [
     icon: ShieldCheck,
     title: "Auditoría Permanente",
     description:
-      "Historial inalterable. Cada evento operativo queda registrado en blockchain.",
+      "Historial inalterable. Cada evento operativo queda registrado en el sistema.",
   },
   {
     icon: Award,

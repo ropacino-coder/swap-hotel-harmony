@@ -18,9 +18,9 @@ const features = [
   },
   {
     icon: Shield,
-    title: "Blockchain Verificado",
+    title: "Trazabilidad Total",
     description:
-      "Cada transacción queda registrada inmutablemente. Transparencia total en el manejo del Pool de Swaps.",
+      "Cada transacción queda registrada de forma inalterable. Transparencia total en el manejo del Pool de Swaps.",
   },
   {
     icon: Layers,
@@ -53,7 +53,7 @@ const PoolSection = () => {
             <span className="gold-text">Swap Hotels</span>
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto text-balance">
-            Un pool descentralizado donde las noches de hotel se convierten en
+            Un pool centralizado donde las noches de hotel se convierten en
             unidades de intercambio líquidas y verificables.
           </p>
         </motion.div>

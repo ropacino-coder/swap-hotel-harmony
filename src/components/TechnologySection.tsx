@@ -6,31 +6,31 @@ const pillars = [
   {
     icon: Lock,
     title: "Inmutable",
-    description: "Cada swap queda registrado permanentemente en la cadena.",
+    description: "Cada intercambio queda registrado permanentemente en el sistema.",
   },
   {
     icon: Eye,
     title: "Transparente",
-    description: "Audita el Pool en tiempo real. Sin intermediarios opacos.",
+    description: "Auditá el Pool en tiempo real. Sin intermediarios opacos.",
   },
   {
     icon: Zap,
     title: "Instantáneo",
-    description: "Intercambios liquidados en segundos, no días.",
+    description: "Intercambios procesados en segundos, no días.",
   },
   {
     icon: RefreshCw,
     title: "FIFO Automático",
-    description: "El vencimiento a 12 meses se ejecuta on-chain automáticamente.",
+    description: "El vencimiento a 12 meses se ejecuta automáticamente por el sistema.",
   },
 ];
 
-const BlockchainSection = () => {
+const TechnologySection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="blockchain" className="py-24 relative overflow-hidden" ref={ref}>
+    <section id="technology" className="py-24 relative overflow-hidden" ref={ref}>
       {/* Animated background orb */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[120px] animate-pulse-slow" />
 
@@ -45,12 +45,12 @@ const BlockchainSection = () => {
             Tecnología
           </span>
           <h2 className="text-3xl md:text-5xl font-display font-bold mt-3 mb-4 text-balance">
-            Blockchain como{" "}
+            Tecnología como{" "}
             <span className="gold-text">garantía</span>
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto text-balance">
-            La confianza no se pide, se programa. Cada unidad de intercambio
-            está respaldada por smart contracts auditables.
+            La confianza no se pide, se construye. Cada unidad de intercambio
+            está respaldada por un sistema auditable e inalterable.
           </p>
         </motion.div>
 
@@ -76,7 +76,7 @@ const BlockchainSection = () => {
           ))}
         </div>
 
-        {/* Visual chain */}
+        {/* Visual flow */}
         <motion.div
           initial={{ opacity: 0, scaleX: 0 }}
           animate={isInView ? { opacity: 1, scaleX: 1 } : {}}
@@ -85,7 +85,7 @@ const BlockchainSection = () => {
         >
           <div className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
           <div className="flex justify-between mt-4">
-            {["Depositar", "Tokenizar", "Intercambiar", "Verificar"].map(
+            {["Depositar", "Valorizar", "Intercambiar", "Verificar"].map(
               (step) => (
                 <span
                   key={step}
@@ -102,4 +102,4 @@ const BlockchainSection = () => {
   );
 };
 
-export default BlockchainSection;
+export default TechnologySection;
