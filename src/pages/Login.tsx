@@ -35,7 +35,7 @@ const Login = () => {
       toast.error(error.message);
     } else {
       toast.success("¡Bienvenido de vuelta!");
-      navigate("/");
+      navigate("/dashboard");
     }
     setLoading(false);
   };
