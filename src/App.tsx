@@ -5,6 +5,13 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { AuthProvider } from "@/contexts/AuthContext";
 import AIChatWidget from "@/components/AIChatWidget";
+import DashboardLayout from "@/components/dashboard/DashboardLayout";
+import DashboardHome from "@/pages/dashboard/DashboardHome";
+import DashboardMint from "@/pages/dashboard/DashboardMint";
+import DashboardPool from "@/pages/dashboard/DashboardPool";
+import DashboardTransactions from "@/pages/dashboard/DashboardTransactions";
+import DashboardNotifications from "@/pages/dashboard/DashboardNotifications";
+import DashboardSettings from "@/pages/dashboard/DashboardSettings";
 import Index from "./pages/Index.tsx";
 import Register from "./pages/Register.tsx";
 import Login from "./pages/Login.tsx";
@@ -49,6 +56,14 @@ const App = () => (
             <Route path="/login" element={<Login />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/reset-password" element={<ResetPassword />} />
+            <Route path="/dashboard" element={<DashboardLayout />}>
+              <Route index element={<DashboardHome />} />
+              <Route path="mis-noches" element={<DashboardMint />} />
+              <Route path="pool" element={<DashboardPool />} />
+              <Route path="transacciones" element={<DashboardTransactions />} />
+              <Route path="notificaciones" element={<DashboardNotifications />} />
+              <Route path="configuracion" element={<DashboardSettings />} />
+            </Route>
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
