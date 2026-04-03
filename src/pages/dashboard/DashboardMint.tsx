@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Moon, Plus, Info, CheckCircle2 } from "lucide-react";
+import { Moon, Plus, Info } from "lucide-react";
 import { toast } from "sonner";
 
 const categories = [

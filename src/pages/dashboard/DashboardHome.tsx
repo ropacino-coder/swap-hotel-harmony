@@ -2,13 +2,10 @@ import { motion } from "framer-motion";
 import {
   Wallet,
   TrendingUp,
-  TrendingDown,
   Clock,
   ArrowUpRight,
   ArrowDownLeft,
   Lock,
-  Bell,
-  Calendar,
 } from "lucide-react";
 
 // Mock data

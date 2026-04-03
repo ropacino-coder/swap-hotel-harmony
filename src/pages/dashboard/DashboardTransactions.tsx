@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, ArrowDownLeft, Lock, Coins, Filter } from "lucide-react";
+import { ArrowUpRight, ArrowDownLeft, Lock } from "lucide-react";
 import { useState } from "react";
 
 const allTransactions = [

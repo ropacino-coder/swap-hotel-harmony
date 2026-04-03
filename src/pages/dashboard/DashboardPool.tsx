@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Search, MapPin, Star, Users, Calendar, Filter, ArrowLeftRight } from "lucide-react";
+import { Search, MapPin, Star, Calendar, ArrowLeftRight } from "lucide-react";
 import { toast } from "sonner";
 
 const poolListings = [
