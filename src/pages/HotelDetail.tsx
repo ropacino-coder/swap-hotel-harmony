@@ -1,14 +1,14 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
-  Star, MapPin, Users, Clock, ChevronLeft, ChevronRight, ArrowLeft,
-  Check, X, Share2, Heart,
+  Star, MapPin, Check, Share2, Heart,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import HotelMapSection from "@/components/HotelMapSection";
 import HotelTourismAI from "@/components/HotelTourismAI";
+import { PhotoGallery } from "@/components/PhotoGallery";
 import { hotels, amenityIcons, categoryColors } from "@/data/hotels";
 
 const HotelDetail = () => {
@@ -16,8 +16,6 @@ const HotelDetail = () => {
   const navigate = useNavigate();
   const hotel = hotels.find((h) => h.id === id);
 
-  const [currentImage, setCurrentImage] = useState(0);
-  const [lightbox, setLightbox] = useState(false);
   const [saved, setSaved] = useState(false);
 
   useEffect(() => {
@@ -39,8 +37,6 @@ const HotelDetail = () => {
     );
   }
 
-  const nextImg = () => setCurrentImage((p) => (p + 1) % hotel.gallery.length);
-  const prevImg = () => setCurrentImage((p) => (p - 1 + hotel.gallery.length) % hotel.gallery.length);
 
   return (
     <div className="min-h-screen bg-background">
@@ -85,64 +81,14 @@ const HotelDetail = () => {
           </div>
         </motion.div>
 
-        {/* Gallery — Airbnb grid */}
+        {/* Gallery — TokenHotel style */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="relative rounded-2xl overflow-hidden mb-8 cursor-pointer group"
-          onClick={() => setLightbox(true)}
+          className="mb-8"
         >
-          <div className="aspect-[16/7] sm:aspect-[16/6]">
-            <AnimatePresence mode="wait">
-              <motion.img
-                key={currentImage}
-                src={hotel.gallery[currentImage]}
-                alt={`${hotel.name} - foto ${currentImage + 1}`}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3 }}
-                className="w-full h-full object-cover"
-              />
-            </AnimatePresence>
-          </div>
-          <button
-            onClick={(e) => { e.stopPropagation(); prevImg(); }}
-            className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-md"
-          >
-            <ChevronLeft className="w-4 h-4" />
-          </button>
-          <button
-            onClick={(e) => { e.stopPropagation(); nextImg(); }}
-            className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-md"
-          >
-            <ChevronRight className="w-4 h-4" />
-          </button>
-          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
-            {hotel.gallery.map((_, i) => (
-              <button
-                key={i}
-                onClick={(e) => { e.stopPropagation(); setCurrentImage(i); }}
-                className={`w-2 h-2 rounded-full transition-all ${
-                  i === currentImage ? "bg-background w-5" : "bg-background/50"
-                }`}
-              />
-            ))}
-          </div>
-          <div className="absolute bottom-3 right-3 hidden sm:flex gap-2">
-            {hotel.gallery.map((img, i) => (
-              <button
-                key={i}
-                onClick={(e) => { e.stopPropagation(); setCurrentImage(i); }}
-                className={`w-14 h-10 rounded-lg overflow-hidden border-2 transition-all ${
-                  i === currentImage ? "border-primary" : "border-transparent opacity-70 hover:opacity-100"
-                }`}
-              >
-                <img src={img} alt="" className="w-full h-full object-cover" />
-              </button>
-            ))}
-          </div>
+          <PhotoGallery images={hotel.gallery} name={hotel.name} />
         </motion.div>
 
         {/* Content grid */}
@@ -345,47 +291,6 @@ const HotelDetail = () => {
         </div>
       </div>
 
-      {/* Lightbox */}
-      <AnimatePresence>
-        {lightbox && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] bg-foreground/90 backdrop-blur-sm flex items-center justify-center p-4"
-            onClick={() => setLightbox(false)}
-          >
-            <button
-              className="absolute top-4 right-4 w-10 h-10 rounded-full bg-card/20 flex items-center justify-center text-primary-foreground hover:bg-card/40 transition-colors"
-              onClick={() => setLightbox(false)}
-            >
-              <X className="w-5 h-5" />
-            </button>
-            <button
-              onClick={(e) => { e.stopPropagation(); prevImg(); }}
-              className="absolute left-4 w-10 h-10 rounded-full bg-card/20 flex items-center justify-center text-primary-foreground hover:bg-card/40 transition-colors"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <motion.img
-              key={currentImage}
-              src={hotel.gallery[currentImage]}
-              alt={hotel.name}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0 }}
-              className="max-w-full max-h-[85vh] rounded-xl object-contain"
-              onClick={(e) => e.stopPropagation()}
-            />
-            <button
-              onClick={(e) => { e.stopPropagation(); nextImg(); }}
-              className="absolute right-4 w-10 h-10 rounded-full bg-card/20 flex items-center justify-center text-primary-foreground hover:bg-card/40 transition-colors"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       <Footer />
     </div>
