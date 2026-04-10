@@ -80,18 +80,18 @@ const GuaranteesSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.1 * i, duration: 0.5 }}
-              className="glass-card-hover p-5 sm:p-7 group relative overflow-hidden"
+              className="glass-card-hover p-5 sm:p-7 group relative overflow-hidden text-center"
             >
               <span className="absolute top-4 right-5 text-4xl font-display font-bold text-border/60 group-hover:text-primary/15 transition-colors">
                 {g.number}
               </span>
-              <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+              <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors mx-auto">
                 <g.icon className="w-5 h-5 text-primary" />
               </div>
-              <h3 className="font-display font-semibold text-base mb-2">
+              <h3 className="font-display font-semibold text-base mb-2 text-center">
                 {g.title}
               </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed text-center">
                 {g.description}
               </p>
             </motion.div>

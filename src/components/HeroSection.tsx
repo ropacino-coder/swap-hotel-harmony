@@ -142,7 +142,7 @@ const HeroSection = () => {
         </motion.div>
 
         {/* Floating stats with stagger */}
-        <div className="mt-10 sm:mt-16 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-2xl">
+        <div className="mt-10 sm:mt-16 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-2xl mx-auto">
           {[
             { value: "12", unit: "meses", label: "Vigencia SU (FIFO)" },
             { value: "4", unit: "países", label: "ARG · URU · CHI · PAR" },

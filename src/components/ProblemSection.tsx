@@ -57,7 +57,7 @@ const ProblemSection = () => {
                   ease: [0.16, 1, 0.3, 1],
                 }}
                 whileHover={{ y: -3, boxShadow: "var(--shadow-card-hover)" }}
-                className="glass-card p-6 flex items-start gap-4 transition-shadow"
+                className="glass-card p-6 flex flex-col items-center text-center gap-3 transition-shadow"
               >
                 <motion.div
                   initial={{ scale: 0, rotate: -90 }}
