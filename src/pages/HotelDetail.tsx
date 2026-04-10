@@ -1,14 +1,14 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
-  Star, MapPin, Users, Clock, ChevronLeft, ChevronRight, ArrowLeft,
-  Check, X, Share2, Heart,
+  Star, MapPin, Check, Share2, Heart,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import HotelMapSection from "@/components/HotelMapSection";
 import HotelTourismAI from "@/components/HotelTourismAI";
+import { PhotoGallery } from "@/components/PhotoGallery";
 import { hotels, amenityIcons, categoryColors } from "@/data/hotels";
 
 const HotelDetail = () => {
