@@ -104,56 +104,39 @@ const ExchangeFlowSection = () => {
           </p>
         </motion.div>
 
-        <div className="relative max-w-4xl mx-auto">
-          {/* Vertical line - mobile left, desktop center */}
-          <div className="absolute left-4 sm:left-6 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-primary/20 to-transparent" />
-
-          <div className="space-y-4 sm:space-y-5 md:space-y-12 pl-10 sm:pl-14 md:pl-0">
-            {steps.map((step, i) => {
-              const isLeft = i % 2 === 0;
-              return (
-                <motion.div
-                  key={step.number}
-                  initial={{ opacity: 0, x: isLeft ? -30 : 30 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ delay: 0.15 * i, duration: 0.6 }}
-                  className={`flex items-start gap-6 md:gap-0 ${
-                    isLeft ? "md:flex-row" : "md:flex-row-reverse"
-                  }`}
-                >
-                  {/* Card */}
-                  <div className={`flex-1 glass-card-hover p-4 sm:p-6 ${isLeft ? "md:mr-10" : "md:ml-10"}`}>
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <step.icon className="w-5 h-5 text-primary" />
-                      </div>
-                      <div>
-                        <span className="text-xs text-primary font-bold">
-                          PASO {step.number}
-                        </span>
-                        <h3 className="font-display font-semibold text-lg leading-tight">
-                          {step.title}
-                        </h3>
-                      </div>
-                    </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {step.description}
-                    </p>
-                    <div className="mt-3">
-                      <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-primary/10 text-primary">
-                        {step.status}
-                      </span>
-                    </div>
+        <div className="max-w-4xl mx-auto space-y-4 sm:space-y-5 md:space-y-8">
+          {steps.map((step, i) => (
+            <motion.div
+              key={step.number}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.15 * i, duration: 0.6 }}
+            >
+              <div className="glass-card-hover p-4 sm:p-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <step.icon className="w-5 h-5 text-primary" />
                   </div>
-
-                  {/* Mobile dot */}
-                  <div className="md:hidden absolute left-0 top-6 w-3 h-3 rounded-full bg-primary flex-shrink-0 z-10 shadow-[0_0_8px_hsla(38,90%,55%,0.4)] -ml-10 sm:-ml-14" style={{ marginLeft: '-1.65rem' }} />
-                  {/* Center dot (desktop) */}
-                  <div className="hidden md:flex items-center justify-center w-4 h-4 rounded-full bg-primary flex-shrink-0 mt-6 relative z-10 shadow-[0_0_12px_hsla(38,90%,55%,0.4)]" />
-                </motion.div>
-              );
-            })}
-          </div>
+                  <div>
+                    <span className="text-xs text-primary font-bold">
+                      PASO {step.number}
+                    </span>
+                    <h3 className="font-display font-semibold text-lg leading-tight">
+                      {step.title}
+                    </h3>
+                  </div>
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {step.description}
+                </p>
+                <div className="mt-3">
+                  <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-primary/10 text-primary">
+                    {step.status}
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
 
         {/* Pool de Swaps */}
