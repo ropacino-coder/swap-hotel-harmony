@@ -28,12 +28,6 @@ const highlights = [
 const DescriptionSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  const textX = useTransform(scrollYProgress, [0, 0.5], ["-20px", "0px"]);
-  const cardsX = useTransform(scrollYProgress, [0, 0.5], ["20px", "0px"]);
 
   return (
     <section id="about" className="py-8 relative" ref={ref}>
