@@ -4,6 +4,7 @@ import { MapPin, ArrowUpDown, X, Filter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { hotels } from "@/data/hotels";
 import { HotelCard } from "@/components/HotelCard";
+import { HotelComparator } from "@/components/HotelComparator";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -60,14 +61,19 @@ const HotelesPage = () => {
       <section className="pt-20 sm:pt-28 pb-10 sm:pb-24">
         <div className="container mx-auto px-4 sm:px-6">
           {/* Header */}
-          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="text-center sm:text-left">
+          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="text-center">
             <h1 className="text-2xl sm:text-3xl font-display font-bold text-foreground">
               Todos los <span className="text-primary">Hoteles</span>
             </h1>
-            <p className="mt-1 sm:mt-2 max-w-xl mx-auto sm:mx-0 text-sm text-muted-foreground hidden sm:block">
+            <p className="mt-1 sm:mt-2 max-w-xl mx-auto text-sm text-muted-foreground hidden sm:block">
               Explorá la red completa de establecimientos verificados en el Cono Sur.
             </p>
           </motion.div>
+
+          {/* Comparator */}
+          <div className="mt-4 sm:mt-6 flex justify-center">
+            <HotelComparator />
+          </div>
 
           {/* Filter bar */}
           <div className="mt-4 sm:mt-6 flex flex-nowrap sm:flex-wrap items-center gap-1.5 sm:gap-2 overflow-x-auto scrollbar-hide pb-1">
