@@ -56,7 +56,14 @@ export const categoryColors: Record<string, string> = {
 
 const imgs = [hotel1, hotel2, hotel3, hotel4, hotel5, hotelLuxury];
 const img = (i: number) => imgs[i % imgs.length];
-const gal = (i: number) => [img(i), img(i + 1), img(i + 2)];
+const gal = (i: number) => [img(i), img(i + 1), img(i + 2), img(i + 3), img(i + 4), img(i + 5)];
+
+// Sample hotel videos (royalty-free)
+const sampleVideos = [
+  "https://videos.pexels.com/video-files/3571264/3571264-uhd_2560_1440_30fps.mp4",
+  "https://videos.pexels.com/video-files/1448735/1448735-hd_1920_1080_24fps.mp4",
+  "https://videos.pexels.com/video-files/4625518/4625518-hd_1920_1080_30fps.mp4",
+];
 
 export const hotels: Hotel[] = [
   // ═══════════ ARGENTINA (15 hoteles) ═══════════
