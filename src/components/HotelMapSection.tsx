@@ -13,11 +13,11 @@ const HotelMapSection = ({ name, location, lat, lng }: HotelMapSectionProps) => 
   return (
     <div>
       <p className="text-sm text-muted-foreground mb-3">{location}</p>
-      <div className="rounded-xl overflow-hidden border border-border">
+      <div className="rounded-xl overflow-hidden border border-border aspect-[4/3] sm:aspect-[3/2]">
         <iframe
           src={mapSrc}
           width="100%"
-          height="300"
+          height="100%"
           style={{ border: 0 }}
           allowFullScreen
           loading="lazy"
