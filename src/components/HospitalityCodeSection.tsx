@@ -69,10 +69,10 @@ const HospitalityCodeSection = () => {
               <span className="absolute top-5 right-6 text-5xl font-display font-bold text-border/50 group-hover:text-primary/15 transition-colors">
                 {p.number}
               </span>
-              <h3 className="font-display font-semibold text-lg mb-3 pr-12">
+              <h3 className="font-display font-semibold text-lg mb-3 pr-12 text-center">
                 {p.title}
               </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed text-center">
                 {p.text}
               </p>
             </motion.div>

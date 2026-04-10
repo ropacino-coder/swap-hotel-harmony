@@ -17,12 +17,12 @@ const EconomySection = () => {
   return (
     <section className="py-8 relative" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-5 items-center">
-          {/* Left */}
+        <div className="max-w-4xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
+            className="text-center mb-5"
           >
             <span className="text-sm font-semibold text-primary uppercase tracking-widest">
               Impacto económico
@@ -37,20 +37,19 @@ const EconomySection = () => {
             </p>
           </motion.div>
 
-          {/* Right — list */}
-          <div className="space-y-4">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
             {impacts.map((item, i) => (
               <motion.div
                 key={item.text}
                 initial={{ opacity: 0, x: 20 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: 0.2 + i * 0.12, duration: 0.5 }}
-                className="flex items-center gap-4 glass-card p-4"
+                className="flex flex-col items-center gap-3 glass-card p-5 text-center"
               >
-                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 mx-auto">
                   <item.icon className="w-5 h-5 text-primary" />
                 </div>
-                <span className="text-sm font-medium text-foreground">{item.text}</span>
+                <span className="text-sm font-medium text-foreground text-center">{item.text}</span>
               </motion.div>
             ))}
           </div>
