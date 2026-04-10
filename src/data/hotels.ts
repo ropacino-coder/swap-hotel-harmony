@@ -69,7 +69,7 @@ export const hotels: Hotel[] = [
   // ═══════════ ARGENTINA (15 hoteles) ═══════════
   {
     id: "hotel-bahia-dorada",
-    image: img(0), gallery: gal(0),
+    image: img(0), gallery: gal(0), videos: [sampleVideos[0]],
     name: "Hotel Bahía Dorada",
     location: "Mar del Plata, Argentina", country: "Argentina",
     category: "Premier", stars: 4, rating: 4.8, reviews: 124, suPerNight: 170,
@@ -88,7 +88,7 @@ export const hotels: Hotel[] = [
   },
   {
     id: "lodge-andino-cielos",
-    image: img(1), gallery: gal(1),
+    image: img(1), gallery: gal(1), videos: [sampleVideos[1]],
     name: "Lodge Andino Cielos",
     location: "Bariloche, Argentina", country: "Argentina",
     category: "Elite", stars: 5, rating: 4.9, reviews: 87, suPerNight: 240,
@@ -144,7 +144,7 @@ export const hotels: Hotel[] = [
   },
   {
     id: "hotel-alvear-palace",
-    image: img(5), gallery: gal(5),
+    image: img(5), gallery: gal(5), videos: [sampleVideos[2]],
     name: "Hotel Alvear Palace",
     location: "Buenos Aires, Argentina", country: "Argentina",
     category: "Elite", stars: 5, rating: 4.9, reviews: 312, suPerNight: 240,
@@ -347,7 +347,7 @@ export const hotels: Hotel[] = [
   // ═══════════ URUGUAY (5 hoteles) ═══════════
   {
     id: "resort-punta-del-este",
-    image: img(2), gallery: gal(2),
+    image: img(2), gallery: gal(2), videos: [sampleVideos[0], sampleVideos[2]],
     name: "Resort Punta del Este",
     location: "Punta del Este, Uruguay", country: "Uruguay",
     category: "Elite", stars: 5, rating: 4.7, reviews: 203, suPerNight: 240,
@@ -513,7 +513,7 @@ export const hotels: Hotel[] = [
   },
   {
     id: "hotel-torres-paine",
-    image: img(4), gallery: gal(4),
+    image: img(4), gallery: gal(4), videos: [sampleVideos[1]],
     name: "Lodge Torres del Paine",
     location: "Torres del Paine, Chile", country: "Chile",
     category: "Elite", stars: 5, rating: 4.9, reviews: 45, suPerNight: 240,
