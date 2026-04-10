@@ -105,8 +105,7 @@ const ExchangeFlowSection = () => {
         </motion.div>
 
         <div className="relative max-w-4xl mx-auto">
-          {/* Vertical line - mobile left, desktop center */}
-          <div className="absolute left-4 sm:left-6 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-primary/20 to-transparent" />
+          {/* Vertical line removed */}
 
           <div className="space-y-4 sm:space-y-5 md:space-y-12 pl-10 sm:pl-14 md:pl-0">
             {steps.map((step, i) => {
