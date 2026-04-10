@@ -4,7 +4,7 @@ import { Star, MapPin, Users, Heart, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { hotels, categoryColors } from "@/data/hotels";
 
-const VISIBLE = 4;
+const VISIBLE = 12;
 const INTERVAL = 5000;
 
 const HotelListingSection = () => {
