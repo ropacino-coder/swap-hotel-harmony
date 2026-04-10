@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Brain, Loader2, X, Plus, BarChart3, Trophy } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
-import { hotels, Hotel } from "@/data/hotels";
+import { hotels } from "@/data/hotels";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 
