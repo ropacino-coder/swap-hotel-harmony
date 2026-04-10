@@ -11,6 +11,7 @@ export interface Hotel {
   id: string;
   image: string;
   gallery: string[];
+  videos?: string[];
   name: string;
   location: string;
   country: string;
