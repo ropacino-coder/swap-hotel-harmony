@@ -88,7 +88,7 @@ const HotelDetail = () => {
           transition={{ duration: 0.4 }}
           className="mb-8"
         >
-          <PhotoGallery images={hotel.gallery} name={hotel.name} />
+          <PhotoGallery images={hotel.gallery} videos={hotel.videos} name={hotel.name} />
         </motion.div>
 
         {/* Content grid */}
